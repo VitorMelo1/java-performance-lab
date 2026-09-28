@@ -1,0 +1,7 @@
+**/target/
+.m2/
+results/*
+!results/.gitkeep
+*.log
+.env
+

@@ -1,0 +1,103 @@
+name: java-performance-lab
+
+x-app-env: &app-env
+  JAVA_TOOL_OPTIONS: "-Xms256m -Xmx256m -XX:ActiveProcessorCount=2"
+  DB_HOST: postgres
+  DB_NAME: lab
+  DB_USER: lab
+  DB_PASSWORD: lab_local_only
+  DB_POOL_SIZE: "20"
+  HTTP_POOL_SIZE: "100"
+  REMOTE_URL: http://upstream:9090
+  SPRING_THREADS_VIRTUAL_ENABLED: "false"
+
+x-app: &app
+  cpus: 2.0
+  mem_limit: 768m
+  environment: *app-env
+  depends_on:
+    postgres:
+      condition: service_healthy
+    upstream:
+      condition: service_healthy
+  restart: "no"
+
+services:
+  postgres:
+    image: postgres:17.4-alpine
+    cpus: 2.0
+    mem_limit: 768m
+    environment:
+      POSTGRES_DB: lab
+      POSTGRES_USER: lab
+      POSTGRES_PASSWORD: lab_local_only
+    command: ["postgres", "-c", "max_connections=100"]
+    volumes:
+      - lab-db:/var/lib/postgresql/data
+      - ./infra/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U lab -d lab"]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+
+  upstream:
+    image: node:22.14.0-alpine
+    cpus: 1.0
+    mem_limit: 128m
+    working_dir: /lab
+    command: ["node", "upstream.mjs"]
+    volumes:
+      - ./infra/upstream.mjs:/lab/upstream.mjs:ro
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:9090/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+
+  mvc-resttemplate:
+    <<: *app
+    image: java-performance-lab-mvc:local
+    build: ./mvc-jdbc
+    profiles: ["mvc-resttemplate"]
+    ports: ["127.0.0.1:18081:8080"]
+    environment:
+      <<: *app-env
+      LAB_HTTP_CLIENT: resttemplate
+
+  mvc-feign:
+    <<: *app
+    image: java-performance-lab-mvc:local
+    profiles: ["mvc-feign"]
+    ports: ["127.0.0.1:18082:8080"]
+    environment:
+      <<: *app-env
+      LAB_HTTP_CLIENT: feign
+
+  webflux:
+    <<: *app
+    image: java-performance-lab-webflux:local
+    build: ./webflux-r2dbc
+    profiles: ["webflux"]
+    ports: ["127.0.0.1:18083:8080"]
+
+  k6:
+    image: grafana/k6:1.0.0
+    profiles: ["tools"]
+    volumes:
+      - ./benchmarks:/scripts:ro
+      - ./results:/results
+    cpus: 2.0
+    mem_limit: 1g
+
+  checker:
+    image: node:22.14.0-alpine
+    profiles: ["tools"]
+    working_dir: /tests
+    command: ["node", "--test", "contract.test.mjs"]
+    volumes:
+      - ./tests:/tests:ro
+
+volumes:
+  lab-db:
+
