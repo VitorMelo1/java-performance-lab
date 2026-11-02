@@ -10,3 +10,7 @@ authors:
   - family-names: "Silva"
     given-names: "Jonatan Mariano da"
 # repository-code e preferred-citation serão preenchidos por Vincular-Publicacao.ps1.
+
+# publication-links:start
+repository-code: "https://github.com/VitorMelo1/java-performance-lab"
+# publication-links:end

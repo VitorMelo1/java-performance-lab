@@ -1,9 +1,13 @@
 # Java Performance Lab
 
 <!-- publication-links:start -->
-## Publicação e código
+## Publicacao e codigo
 
-Abra [PUBLICAR.html](PUBLICAR.html) para encontrar os arquivos e copiar os campos do Zenodo. O [guia de publicação](docs/publicacao/COMO-PUBLICAR.md) explica como vincular o GitHub e guardar o comprovante. Depósito público e endereço do repositório ainda pendentes; nenhum DOI é presumido.
+Codigo-fonte: [https://github.com/VitorMelo1/java-performance-lab](https://github.com/VitorMelo1/java-performance-lab).
+
+Artigo: deposito publico ainda pendente; nenhum DOI foi informado.
+
+Abra [PUBLICAR.html](PUBLICAR.html) para os campos do Zenodo e [o guia](docs/publicacao/COMO-PUBLICAR.md) para conferir os arquivos. As coletas historicas usam versoes discriminadas no artigo; o codigo atual nao substitui seus manifestos.
 
 <!-- publication-links:end -->
 
