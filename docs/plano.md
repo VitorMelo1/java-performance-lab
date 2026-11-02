@@ -12,3 +12,9 @@ Versões de referência fixadas: Java 21, Spring Boot 4.0.3, Spring Cloud 2025.1
 
 Critérios: resposta de sucesso e SQL equivalentes; 404 para registro ausente; 400 para entrada inválida; falha ou timeout remoto convertido em 502; arquivo bruto preservado em falhas; taxas oferecida e atingida distintas; nenhum resultado inventado.
 
+## Revisão do protocolo após a primeira coleta
+
+O código das APIs permanece o mesmo. Foram corrigidos o aquecimento limitado a 100 req/s, a seleção dos serviços nos logs e a contagem de containers externos. O protocolo novo aquece 60 s na taxa alvo e mede 120 s, com os mesmos recursos e 500 VUs. O analisador verifica a integridade das amostras e sinaliza variação temporal por uma heurística declarada. O estado `sem_alerta` não constitui prova de estacionariedade.
+
+O reteste mantém as três variantes HTTP e as duas SQL, em 500 e 1.000 req/s, com três repetições, além de controle direto do upstream: 48 rodadas em dois lotes. Dados da coleta antiga, diagnóstico isolado e reteste completo devem ser identificados e analisados separadamente. A ordem é embaralhada e registrada dentro de cada lote.
+

@@ -1,0 +1,47 @@
+# Fixacao de nucleos. Opcional e NAO aplicada por padrao.
+#
+# `cpus: 2.0` no compose.yaml e cota de tempo, nao afinidade: o container recebe dois
+# nucleos de tempo mas migra entre nucleos fisicos diferentes a cada rodada. Nos lotes de
+# outubro isso e um candidato direto a dispersao entre repeticoes da mesma celula
+# (mvc-resttemplate/orders a 1000 req/s teve p50 de 3,96, 31,8 e 277,7 ms nas tres
+# repeticoes). Em CPU hibrida, o mesmo container pode cair em nucleos P numa rodada e em
+# nucleos E na seguinte, com diferenca de desempenho por nucleo.
+#
+# ANTES DE USAR, confirme a topologia desta maquina. Os valores abaixo supoem 14 CPUs
+# logicas, com nucleos P em 0-7 (pares de hyperthread) e nucleos E em 8-13. Em outra
+# maquina os indices mudam e a fixacao erra o alvo:
+#
+#   Get-CimInstance Win32_Processor | Select-Object Name,NumberOfCores,NumberOfLogicalProcessors
+#
+# A escolha de 0,2 (e nao 0,1) e deliberada: 0 e 1 costumam ser as duas threads do mesmo
+# nucleo fisico, e fixar nelas daria um nucleo fisico, nao dois.
+#
+# Use em todos os comandos da coleta, sempre o mesmo conjunto em todos os bracos:
+#
+#   docker compose -f compose.yaml -f compose.cpuset.yaml ...
+#
+# Os scripts chamam `docker compose` sem -f extra. Para fixar nucleos durante a coleta,
+# defina COMPOSE_FILE antes de iniciar, na mesma sessao:
+#
+#   $env:COMPOSE_FILE = 'compose.yaml;compose.cpuset.yaml'
+#
+# Registre no artigo que a fixacao foi usada e com qual mapa. Cotas iguais e nucleos
+# fixos continuam nao equivalendo a hardware dedicado.
+
+services:
+  mvc-resttemplate:
+    cpuset: "0,2"
+  mvc-feign:
+    cpuset: "0,2"
+  webflux:
+    cpuset: "0,2"
+  postgres:
+    cpuset: "4,6"
+  stock-service:
+    cpuset: "12"
+  stock-db:
+    cpuset: "13"
+  upstream:
+    cpuset: "11"
+  k6:
+    cpuset: "8,10"

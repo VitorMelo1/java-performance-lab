@@ -4,4 +4,12 @@ results/*
 !results/.gitkeep
 *.log
 .env
+# Dados brutos (~2,9 GiB): enviar ao deposito do artigo, nao ao Git.
+docs/entrega-artigo/Dados-brutos.zip
+# Arquivos de bloqueio do Word.
+~$*
 
+
+docs/arquivo-artigo/
+
+**/Dados-brutos.zip

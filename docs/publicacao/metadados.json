@@ -1,0 +1,29 @@
+{
+  "title": "Análise de desempenho entre programação reativa com Spring WebFlux/R2DBC e programação tradicional com Spring MVC/JDBC em APIs Java sob alta concorrência",
+  "authors": [
+    {
+      "given_names": "Vitor Martins",
+      "family_names": "Melo"
+    },
+    {
+      "given_names": "Athos Lial",
+      "family_names": "Passos"
+    },
+    {
+      "given_names": "Jonatan Mariano da",
+      "family_names": "Silva"
+    }
+  ],
+  "abstract": "Este estudo compara APIs Java implementadas com Spring MVC/JDBC e Spring WebFlux/R2DBC em operações SQL e pedidos com comunicação entre serviços. A bancada utiliza containers com cotas de recursos, geração de carga aberta e validação das respostas. Foram preservadas 282 rodadas principais e 20 testes curtos, distinguindo versões, sessões e intervenções diagnósticas. A matriz completa revisada de 31 de outubro de 2026 contém 72 rodadas, taxas de 200, 500 e 1.000 requisições por segundo e três repetições por condição. Suas 3.672.060 requisições de medição foram corretas, sem iterações descartadas. Nas operações SQL, as medianas dos p95 do MVC foram de 0,387 a 0,945 ms inferiores às do WebFlux. Em pedidos a 1.000 req/s, os p95 medianos foram 6,333 ms com RestTemplate, 6,171 ms com OpenFeign e 10,414 ms com WebClient. Sessões anteriores apresentaram degradação reativa, associada a restrição de CPU no diagnóstico; uma intervenção de cota acompanhou melhora, sem isolar todas as causas. A auditoria também identificou diferenças no transporte Feign, falhas de inicialização de conversores e mudança da JVM entre reconstruções. Os resultados caracterizam as implementações e demonstram a importância de preservar proveniência, entrega de carga e variabilidade, sem estabelecer superioridade universal de um paradigma.",
+  "keywords": [
+    "Spring MVC",
+    "Spring WebFlux",
+    "JDBC",
+    "R2DBC",
+    "avaliação de desempenho"
+  ],
+  "resource_type": "Publication / Preprint",
+  "language": "Portuguese",
+  "license_status": "Escolher no depósito; CC BY 4.0 sugerida para artigo e documentação, preservando licenças de terceiros.",
+  "publication_date": "Data da primeira disponibilização pública, a preencher no depósito."
+}

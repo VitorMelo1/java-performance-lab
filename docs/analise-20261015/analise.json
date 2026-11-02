@@ -1,0 +1,2691 @@
+{
+  "batch": "20261015-011234-1ceec5",
+  "totals": {
+    "planned": 3672000,
+    "observed": 3672051,
+    "correct": 3672051,
+    "warmup_failures": 18,
+    "measurement_drops": 0,
+    "excluded_samples": 0,
+    "temporal_alerts": 9
+  },
+  "method": {
+    "estimator": "mediana dos percentis por rodada de A menos mediana dos percentis por rodada de B; vazão usa a mesma diferença de medianas",
+    "unit": "rodada; n=3 por implementação e condição",
+    "primary_resampling": "blocos por repetition, 27 sequências equiprováveis com reposição; pressupõe blocos aproximadamente independentes e comparáveis",
+    "sensitivity": "reamostragem independente entre braços, 729 pares equiprováveis",
+    "interval": "percentil nominal 95%, quantil pela inversa da distribuição empírica; enumeração completa, sem erro Monte Carlo",
+    "limits": "Exploratório e pós-coleta. n=3 não permite assegurar cobertura de 95%. As três repetições são sequenciais na mesma máquina, não replicações em máquinas ou dias independentes. Sem correção para múltiplas comparações. Não usar exclusão de zero como teste confirmatório. Requisições individuais não contam como repetições independentes. Alertas e rodada de carga incompleta foram preservados e identificados."
+  },
+  "comparisons": [
+    {
+      "scenario": "db-read",
+      "rate": 200,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "latency_p95_ms",
+      "a_values": [
+        1.378725,
+        1.7348876,
+        1.3359317999999993
+      ],
+      "b_values": [
+        1.89457,
+        1.969753,
+        1.828225
+      ],
+      "a_runs": [
+        "022-mvc-resttemplate-db-read-r200-rep1",
+        "045-mvc-resttemplate-db-read-r200-rep2",
+        "061-mvc-resttemplate-db-read-r200-rep3"
+      ],
+      "b_runs": [
+        "019-webflux-db-read-r200-rep1",
+        "037-webflux-db-read-r200-rep2",
+        "058-webflux-db-read-r200-rep3"
+      ],
+      "difference": -0.5158450000000001,
+      "paired_interval": [
+        -0.5158450000000001,
+        -0.2348654000000001
+      ],
+      "independent_interval": [
+        -0.6338212000000008,
+        -0.09333740000000001
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "db-read",
+      "rate": 200,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "latency_p99_ms",
+      "a_values": [
+        1.986563,
+        2.372072479999997,
+        1.8392400499999988
+      ],
+      "b_values": [
+        2.644591,
+        2.776555,
+        2.580794
+      ],
+      "a_runs": [
+        "022-mvc-resttemplate-db-read-r200-rep1",
+        "045-mvc-resttemplate-db-read-r200-rep2",
+        "061-mvc-resttemplate-db-read-r200-rep3"
+      ],
+      "b_runs": [
+        "019-webflux-db-read-r200-rep1",
+        "037-webflux-db-read-r200-rep2",
+        "058-webflux-db-read-r200-rep3"
+      ],
+      "difference": -0.6580280000000001,
+      "paired_interval": [
+        -0.7415539500000012,
+        -0.4044825200000033
+      ],
+      "independent_interval": [
+        -0.9373149500000013,
+        -0.2087215200000032
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "db-read",
+      "rate": 200,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "successful_rps",
+      "a_values": [
+        200.01796192188004,
+        200.0102997348398,
+        200.0058487399227
+      ],
+      "b_values": [
+        200.01617316709206,
+        200.01830509837293,
+        200.0181708191229
+      ],
+      "a_runs": [
+        "022-mvc-resttemplate-db-read-r200-rep1",
+        "045-mvc-resttemplate-db-read-r200-rep2",
+        "061-mvc-resttemplate-db-read-r200-rep3"
+      ],
+      "b_runs": [
+        "019-webflux-db-read-r200-rep1",
+        "037-webflux-db-read-r200-rep2",
+        "058-webflux-db-read-r200-rep3"
+      ],
+      "difference": -0.007871084283095797,
+      "paired_interval": [
+        -0.012322079200203007,
+        0.0017887547879809063
+      ],
+      "independent_interval": [
+        -0.012456358450236849,
+        0.0017887547879809063
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "db-read",
+      "rate": 500,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "latency_p95_ms",
+      "a_values": [
+        1.256233,
+        1.3155215499999993,
+        1.238626
+      ],
+      "b_values": [
+        1.63221,
+        2.4348818,
+        1.7041075999999995
+      ],
+      "a_runs": [
+        "023-mvc-resttemplate-db-read-r500-rep1",
+        "047-mvc-resttemplate-db-read-r500-rep2",
+        "049-mvc-resttemplate-db-read-r500-rep3"
+      ],
+      "b_runs": [
+        "015-webflux-db-read-r500-rep1",
+        "040-webflux-db-read-r500-rep2",
+        "065-webflux-db-read-r500-rep3"
+      ],
+      "difference": -0.44787459999999957,
+      "paired_interval": [
+        -1.1193602500000006,
+        -0.375977
+      ],
+      "independent_interval": [
+        -1.1962557999999999,
+        -0.3166884500000007
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "db-read",
+      "rate": 500,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "latency_p99_ms",
+      "a_values": [
+        1.714582,
+        1.89923843,
+        1.823519
+      ],
+      "b_values": [
+        2.711424,
+        3.5298598800000027,
+        2.7014449900000055
+      ],
+      "a_runs": [
+        "023-mvc-resttemplate-db-read-r500-rep1",
+        "047-mvc-resttemplate-db-read-r500-rep2",
+        "049-mvc-resttemplate-db-read-r500-rep3"
+      ],
+      "b_runs": [
+        "015-webflux-db-read-r500-rep1",
+        "040-webflux-db-read-r500-rep2",
+        "065-webflux-db-read-r500-rep3"
+      ],
+      "difference": -0.8879050000000002,
+      "paired_interval": [
+        -1.6306214500000027,
+        -0.8779259900000056
+      ],
+      "independent_interval": [
+        -1.8152778800000027,
+        -0.8022065600000055
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "db-read",
+      "rate": 500,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "successful_rps",
+      "a_values": [
+        500.02379703152354,
+        500.02448463782525,
+        500.03252915999826
+      ],
+      "b_values": [
+        500.02534523260874,
+        500.02719153423425,
+        500.01808301507833
+      ],
+      "a_runs": [
+        "023-mvc-resttemplate-db-read-r500-rep1",
+        "047-mvc-resttemplate-db-read-r500-rep2",
+        "049-mvc-resttemplate-db-read-r500-rep3"
+      ],
+      "b_runs": [
+        "015-webflux-db-read-r500-rep1",
+        "040-webflux-db-read-r500-rep2",
+        "065-webflux-db-read-r500-rep3"
+      ],
+      "difference": -0.0008605947834894323,
+      "paired_interval": [
+        -0.0027068964089949077,
+        0.014446144919929793
+      ],
+      "independent_interval": [
+        -0.003394502710705183,
+        0.014446144919929793
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "db-read",
+      "rate": 1000,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "latency_p95_ms",
+      "a_values": [
+        1.023585,
+        1.505826250000001,
+        1.436248
+      ],
+      "b_values": [
+        1.594896,
+        1.6735400500000002,
+        2.906142
+      ],
+      "a_runs": [
+        "005-mvc-resttemplate-db-read-r1000-rep1",
+        "030-mvc-resttemplate-db-read-r1000-rep2",
+        "064-mvc-resttemplate-db-read-r1000-rep3"
+      ],
+      "b_runs": [
+        "001-webflux-db-read-r1000-rep1",
+        "036-webflux-db-read-r1000-rep2",
+        "054-webflux-db-read-r1000-rep3"
+      ],
+      "difference": -0.2372920500000002,
+      "paired_interval": [
+        -1.469894,
+        -0.16771379999999914
+      ],
+      "independent_interval": [
+        -1.882557,
+        -0.08906974999999906
+      ],
+      "alerts": 2
+    },
+    {
+      "scenario": "db-read",
+      "rate": 1000,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "latency_p99_ms",
+      "a_values": [
+        1.643229,
+        101.55739158999997,
+        3.288207
+      ],
+      "b_values": [
+        3.160153,
+        4.021875269999973,
+        18.386391
+      ],
+      "a_runs": [
+        "005-mvc-resttemplate-db-read-r1000-rep1",
+        "030-mvc-resttemplate-db-read-r1000-rep2",
+        "064-mvc-resttemplate-db-read-r1000-rep3"
+      ],
+      "b_runs": [
+        "001-webflux-db-read-r1000-rep1",
+        "036-webflux-db-read-r1000-rep2",
+        "054-webflux-db-read-r1000-rep3"
+      ],
+      "difference": -0.7336682699999733,
+      "paired_interval": [
+        -15.098184,
+        97.53551632
+      ],
+      "independent_interval": [
+        -16.743161999999998,
+        98.39723858999997
+      ],
+      "alerts": 2
+    },
+    {
+      "scenario": "db-read",
+      "rate": 1000,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "successful_rps",
+      "a_values": [
+        1000.045149347846,
+        1000.0333898259544,
+        1000.0465270699465
+      ],
+      "b_values": [
+        1000.0279963504896,
+        1000.0516973947047,
+        1000.0487138761317
+      ],
+      "a_runs": [
+        "005-mvc-resttemplate-db-read-r1000-rep1",
+        "030-mvc-resttemplate-db-read-r1000-rep2",
+        "064-mvc-resttemplate-db-read-r1000-rep3"
+      ],
+      "b_runs": [
+        "001-webflux-db-read-r1000-rep1",
+        "036-webflux-db-read-r1000-rep2",
+        "054-webflux-db-read-r1000-rep3"
+      ],
+      "difference": -0.0035645282857785787,
+      "paired_interval": [
+        -0.018307568750287828,
+        0.0171529973563338
+      ],
+      "independent_interval": [
+        -0.018307568750287828,
+        0.018530719456862244
+      ],
+      "alerts": 2
+    },
+    {
+      "scenario": "db-write",
+      "rate": 200,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "latency_p95_ms",
+      "a_values": [
+        2.891135,
+        2.745016,
+        2.669723
+      ],
+      "b_values": [
+        3.345704,
+        4.772554,
+        3.414163
+      ],
+      "a_runs": [
+        "024-mvc-resttemplate-db-write-r200-rep1",
+        "027-mvc-resttemplate-db-write-r200-rep2",
+        "060-mvc-resttemplate-db-write-r200-rep3"
+      ],
+      "b_runs": [
+        "017-webflux-db-write-r200-rep1",
+        "048-webflux-db-write-r200-rep2",
+        "051-webflux-db-write-r200-rep3"
+      ],
+      "difference": -0.6691469999999997,
+      "paired_interval": [
+        -2.0275380000000003,
+        -0.4545690000000002
+      ],
+      "independent_interval": [
+        -2.1028310000000006,
+        -0.4545690000000002
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "db-write",
+      "rate": 200,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "latency_p99_ms",
+      "a_values": [
+        4.642136,
+        5.210362,
+        4.434477
+      ],
+      "b_values": [
+        5.482526,
+        27.090756,
+        5.403275
+      ],
+      "a_runs": [
+        "024-mvc-resttemplate-db-write-r200-rep1",
+        "027-mvc-resttemplate-db-write-r200-rep2",
+        "060-mvc-resttemplate-db-write-r200-rep3"
+      ],
+      "b_runs": [
+        "017-webflux-db-write-r200-rep1",
+        "048-webflux-db-write-r200-rep2",
+        "051-webflux-db-write-r200-rep3"
+      ],
+      "difference": -0.8403900000000002,
+      "paired_interval": [
+        -21.880394,
+        -0.8403900000000002
+      ],
+      "independent_interval": [
+        -22.656278999999998,
+        -0.1929129999999999
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "db-write",
+      "rate": 200,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "successful_rps",
+      "a_values": [
+        200.0145314151579,
+        200.01443515100888,
+        200.01509968777526
+      ],
+      "b_values": [
+        200.0142777704925,
+        200.01560026124338,
+        200.0150066900546
+      ],
+      "a_runs": [
+        "024-mvc-resttemplate-db-write-r200-rep1",
+        "027-mvc-resttemplate-db-write-r200-rep2",
+        "060-mvc-resttemplate-db-write-r200-rep3"
+      ],
+      "b_runs": [
+        "017-webflux-db-write-r200-rep1",
+        "048-webflux-db-write-r200-rep2",
+        "051-webflux-db-write-r200-rep3"
+      ],
+      "difference": -0.0004752748967007392,
+      "paired_interval": [
+        -0.0011651102344956143,
+        0.00025364466540622743
+      ],
+      "independent_interval": [
+        -0.0011651102344956143,
+        0.0008219172827637067
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "db-write",
+      "rate": 500,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "latency_p95_ms",
+      "a_values": [
+        2.621355999999999,
+        2.847443,
+        3.197518
+      ],
+      "b_values": [
+        3.198769,
+        3.422904,
+        3.702379599999999
+      ],
+      "a_runs": [
+        "014-mvc-resttemplate-db-write-r500-rep1",
+        "046-mvc-resttemplate-db-write-r500-rep2",
+        "072-mvc-resttemplate-db-write-r500-rep3"
+      ],
+      "b_runs": [
+        "010-webflux-db-write-r500-rep1",
+        "035-webflux-db-write-r500-rep2",
+        "069-webflux-db-write-r500-rep3"
+      ],
+      "difference": -0.5754609999999998,
+      "paired_interval": [
+        -0.5774130000000008,
+        -0.504861599999999
+      ],
+      "independent_interval": [
+        -1.0810236,
+        -0.001250999999999891
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "db-write",
+      "rate": 500,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "latency_p99_ms",
+      "a_values": [
+        5.147381270000022,
+        7.82773,
+        11.968724
+      ],
+      "b_values": [
+        6.798636,
+        7.448283,
+        7.536660590000042
+      ],
+      "a_runs": [
+        "014-mvc-resttemplate-db-write-r500-rep1",
+        "046-mvc-resttemplate-db-write-r500-rep2",
+        "072-mvc-resttemplate-db-write-r500-rep3"
+      ],
+      "b_runs": [
+        "010-webflux-db-write-r500-rep1",
+        "035-webflux-db-write-r500-rep2",
+        "069-webflux-db-write-r500-rep3"
+      ],
+      "difference": 0.37944699999999987,
+      "paired_interval": [
+        -1.6512547299999785,
+        4.432063409999958
+      ],
+      "independent_interval": [
+        -2.3892793200000204,
+        5.170088
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "db-write",
+      "rate": 500,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "successful_rps",
+      "a_values": [
+        500.01691631119274,
+        500.0333018056598,
+        500.02403130983765
+      ],
+      "b_values": [
+        500.0188209513133,
+        500.0279254390426,
+        500.0224171439005
+      ],
+      "a_runs": [
+        "014-mvc-resttemplate-db-write-r500-rep1",
+        "046-mvc-resttemplate-db-write-r500-rep2",
+        "072-mvc-resttemplate-db-write-r500-rep3"
+      ],
+      "b_runs": [
+        "010-webflux-db-write-r500-rep1",
+        "035-webflux-db-write-r500-rep2",
+        "069-webflux-db-write-r500-rep3"
+      ],
+      "difference": 0.001614165937155576,
+      "paired_interval": [
+        -0.0019046401205287111,
+        0.00537636661721308
+      ],
+      "independent_interval": [
+        -0.011009127849831657,
+        0.014480854346516026
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "db-write",
+      "rate": 1000,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "latency_p95_ms",
+      "a_values": [
+        3.79733,
+        5.804103,
+        3.4633552000000005
+      ],
+      "b_values": [
+        4.391326,
+        4.679031300000001,
+        4.416286
+      ],
+      "a_runs": [
+        "013-mvc-resttemplate-db-write-r1000-rep1",
+        "044-mvc-resttemplate-db-write-r1000-rep2",
+        "062-mvc-resttemplate-db-write-r1000-rep3"
+      ],
+      "b_runs": [
+        "012-webflux-db-write-r1000-rep1",
+        "031-webflux-db-write-r1000-rep2",
+        "052-webflux-db-write-r1000-rep3"
+      ],
+      "difference": -0.6189560000000003,
+      "paired_interval": [
+        -0.9529307999999999,
+        1.1250716999999986
+      ],
+      "independent_interval": [
+        -1.2156761000000005,
+        1.4127769999999993
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "db-write",
+      "rate": 1000,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "latency_p99_ms",
+      "a_values": [
+        9.32349,
+        13.498541,
+        7.586174939999992
+      ],
+      "b_values": [
+        9.328669,
+        11.139918229999966,
+        9.69029
+      ],
+      "a_runs": [
+        "013-mvc-resttemplate-db-write-r1000-rep1",
+        "044-mvc-resttemplate-db-write-r1000-rep2",
+        "062-mvc-resttemplate-db-write-r1000-rep3"
+      ],
+      "b_runs": [
+        "012-webflux-db-write-r1000-rep1",
+        "031-webflux-db-write-r1000-rep2",
+        "052-webflux-db-write-r1000-rep3"
+      ],
+      "difference": -0.36679999999999957,
+      "paired_interval": [
+        -2.104115060000007,
+        2.358622770000034
+      ],
+      "independent_interval": [
+        -3.5537432899999732,
+        4.169872
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "db-write",
+      "rate": 1000,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "successful_rps",
+      "a_values": [
+        1000.0373903603316,
+        1000.0334513472859,
+        1000.0382593526109
+      ],
+      "b_values": [
+        1000.0372948542603,
+        1000.021431503744,
+        1000.0363921644431
+      ],
+      "a_runs": [
+        "013-mvc-resttemplate-db-write-r1000-rep1",
+        "044-mvc-resttemplate-db-write-r1000-rep2",
+        "062-mvc-resttemplate-db-write-r1000-rep3"
+      ],
+      "b_runs": [
+        "012-webflux-db-write-r1000-rep1",
+        "031-webflux-db-write-r1000-rep2",
+        "052-webflux-db-write-r1000-rep3"
+      ],
+      "difference": 0.0009981958885418862,
+      "paired_interval": [
+        0.00009550607137498446,
+        0.012019843541906994
+      ],
+      "independent_interval": [
+        -0.0038435069743627537,
+        0.016827848866910244
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "orders",
+      "rate": 200,
+      "a": "mvc-resttemplate",
+      "b": "mvc-feign",
+      "metric": "latency_p95_ms",
+      "a_values": [
+        4.429843099999999,
+        6.687565399999996,
+        4.694965
+      ],
+      "b_values": [
+        4.225537,
+        5.689744,
+        3.76389
+      ],
+      "a_runs": [
+        "018-mvc-resttemplate-orders-r200-rep1",
+        "042-mvc-resttemplate-orders-r200-rep2",
+        "063-mvc-resttemplate-orders-r200-rep3"
+      ],
+      "b_runs": [
+        "004-mvc-feign-orders-r200-rep1",
+        "043-mvc-feign-orders-r200-rep2",
+        "059-mvc-feign-orders-r200-rep3"
+      ],
+      "difference": 0.46942799999999973,
+      "paired_interval": [
+        0.20430609999999927,
+        0.9978213999999959
+      ],
+      "independent_interval": [
+        -1.2599009000000008,
+        2.923675399999996
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "orders",
+      "rate": 200,
+      "a": "mvc-resttemplate",
+      "b": "mvc-feign",
+      "metric": "latency_p99_ms",
+      "a_values": [
+        6.907097159999996,
+        25.07505568999975,
+        8.953791
+      ],
+      "b_values": [
+        6.382338,
+        24.026544,
+        5.980182
+      ],
+      "a_runs": [
+        "018-mvc-resttemplate-orders-r200-rep1",
+        "042-mvc-resttemplate-orders-r200-rep2",
+        "063-mvc-resttemplate-orders-r200-rep3"
+      ],
+      "b_runs": [
+        "004-mvc-feign-orders-r200-rep1",
+        "043-mvc-feign-orders-r200-rep2",
+        "059-mvc-feign-orders-r200-rep3"
+      ],
+      "difference": 2.571453000000001,
+      "paired_interval": [
+        0.5247591599999959,
+        2.9736090000000006
+      ],
+      "independent_interval": [
+        -17.119446840000005,
+        19.09487368999975
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "orders",
+      "rate": 200,
+      "a": "mvc-resttemplate",
+      "b": "mvc-feign",
+      "metric": "successful_rps",
+      "a_values": [
+        200.00944986425637,
+        200.00825839210225,
+        200.0132705388299
+      ],
+      "b_values": [
+        200.01276184754772,
+        200.0142251436943,
+        200.0139452442663
+      ],
+      "a_runs": [
+        "018-mvc-resttemplate-orders-r200-rep1",
+        "042-mvc-resttemplate-orders-r200-rep2",
+        "063-mvc-resttemplate-orders-r200-rep3"
+      ],
+      "b_runs": [
+        "004-mvc-feign-orders-r200-rep1",
+        "043-mvc-feign-orders-r200-rep2",
+        "059-mvc-feign-orders-r200-rep3"
+      ],
+      "difference": -0.004495380009927885,
+      "paired_interval": [
+        -0.005966751592040964,
+        -0.0006747054364097949
+      ],
+      "independent_interval": [
+        -0.005966751592040964,
+        0.0005086912821639089
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "orders",
+      "rate": 200,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "latency_p95_ms",
+      "a_values": [
+        4.429843099999999,
+        6.687565399999996,
+        4.694965
+      ],
+      "b_values": [
+        5.180561,
+        5.244154949999999,
+        5.703413
+      ],
+      "a_runs": [
+        "018-mvc-resttemplate-orders-r200-rep1",
+        "042-mvc-resttemplate-orders-r200-rep2",
+        "063-mvc-resttemplate-orders-r200-rep3"
+      ],
+      "b_runs": [
+        "020-webflux-orders-r200-rep1",
+        "029-webflux-orders-r200-rep2",
+        "070-webflux-orders-r200-rep3"
+      ],
+      "difference": -0.5491899499999988,
+      "paired_interval": [
+        -1.0084480000000005,
+        1.4434104499999973
+      ],
+      "independent_interval": [
+        -1.273569900000001,
+        1.507004399999996
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "orders",
+      "rate": 200,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "latency_p99_ms",
+      "a_values": [
+        6.907097159999996,
+        25.07505568999975,
+        8.953791
+      ],
+      "b_values": [
+        8.589738,
+        7.987581909999992,
+        8.948476
+      ],
+      "a_runs": [
+        "018-mvc-resttemplate-orders-r200-rep1",
+        "042-mvc-resttemplate-orders-r200-rep2",
+        "063-mvc-resttemplate-orders-r200-rep3"
+      ],
+      "b_runs": [
+        "020-webflux-orders-r200-rep1",
+        "029-webflux-orders-r200-rep2",
+        "070-webflux-orders-r200-rep3"
+      ],
+      "difference": 0.3640530000000002,
+      "paired_interval": [
+        -1.6826408400000048,
+        17.08747377999976
+      ],
+      "independent_interval": [
+        -2.0413788400000037,
+        17.08747377999976
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "orders",
+      "rate": 200,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "successful_rps",
+      "a_values": [
+        200.00944986425637,
+        200.00825839210225,
+        200.0132705388299
+      ],
+      "b_values": [
+        200.0108407031215,
+        200.00808877379473,
+        200.01190294490075
+      ],
+      "a_runs": [
+        "018-mvc-resttemplate-orders-r200-rep1",
+        "042-mvc-resttemplate-orders-r200-rep2",
+        "063-mvc-resttemplate-orders-r200-rep3"
+      ],
+      "b_runs": [
+        "020-webflux-orders-r200-rep1",
+        "029-webflux-orders-r200-rep2",
+        "070-webflux-orders-r200-rep3"
+      ],
+      "difference": -0.0013908388651202586,
+      "paired_interval": [
+        -0.0013908388651202586,
+        0.0013675939291317718
+      ],
+      "independent_interval": [
+        -0.003644552798505174,
+        0.005181765035160879
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "orders",
+      "rate": 200,
+      "a": "mvc-feign",
+      "b": "webflux",
+      "metric": "latency_p95_ms",
+      "a_values": [
+        4.225537,
+        5.689744,
+        3.76389
+      ],
+      "b_values": [
+        5.180561,
+        5.244154949999999,
+        5.703413
+      ],
+      "a_runs": [
+        "004-mvc-feign-orders-r200-rep1",
+        "043-mvc-feign-orders-r200-rep2",
+        "059-mvc-feign-orders-r200-rep3"
+      ],
+      "b_runs": [
+        "020-webflux-orders-r200-rep1",
+        "029-webflux-orders-r200-rep2",
+        "070-webflux-orders-r200-rep3"
+      ],
+      "difference": -1.0186179499999986,
+      "paired_interval": [
+        -1.9395230000000003,
+        0.4455890500000015
+      ],
+      "independent_interval": [
+        -1.9395230000000003,
+        0.5091830000000002
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "orders",
+      "rate": 200,
+      "a": "mvc-feign",
+      "b": "webflux",
+      "metric": "latency_p99_ms",
+      "a_values": [
+        6.382338,
+        24.026544,
+        5.980182
+      ],
+      "b_values": [
+        8.589738,
+        7.987581909999992,
+        8.948476
+      ],
+      "a_runs": [
+        "004-mvc-feign-orders-r200-rep1",
+        "043-mvc-feign-orders-r200-rep2",
+        "059-mvc-feign-orders-r200-rep3"
+      ],
+      "b_runs": [
+        "020-webflux-orders-r200-rep1",
+        "029-webflux-orders-r200-rep2",
+        "070-webflux-orders-r200-rep3"
+      ],
+      "difference": -2.2074000000000007,
+      "paired_interval": [
+        -2.9682939999999993,
+        16.03896209000001
+      ],
+      "independent_interval": [
+        -2.9682939999999993,
+        16.03896209000001
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "orders",
+      "rate": 200,
+      "a": "mvc-feign",
+      "b": "webflux",
+      "metric": "successful_rps",
+      "a_values": [
+        200.01276184754772,
+        200.0142251436943,
+        200.0139452442663
+      ],
+      "b_values": [
+        200.0108407031215,
+        200.00808877379473,
+        200.01190294490075
+      ],
+      "a_runs": [
+        "004-mvc-feign-orders-r200-rep1",
+        "043-mvc-feign-orders-r200-rep2",
+        "059-mvc-feign-orders-r200-rep3"
+      ],
+      "b_runs": [
+        "020-webflux-orders-r200-rep1",
+        "029-webflux-orders-r200-rep2",
+        "070-webflux-orders-r200-rep3"
+      ],
+      "difference": 0.0031045411448076266,
+      "paired_interval": [
+        0.0019211444262339228,
+        0.006136369899564897
+      ],
+      "independent_interval": [
+        0.0008589026469678629,
+        0.006136369899564897
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "orders",
+      "rate": 500,
+      "a": "mvc-resttemplate",
+      "b": "mvc-feign",
+      "metric": "latency_p95_ms",
+      "a_values": [
+        4.530066,
+        9.578216,
+        4.247409
+      ],
+      "b_values": [
+        4.2658431499999985,
+        4.482586,
+        4.32627
+      ],
+      "a_runs": [
+        "009-mvc-resttemplate-orders-r500-rep1",
+        "033-mvc-resttemplate-orders-r500-rep2",
+        "055-mvc-resttemplate-orders-r500-rep3"
+      ],
+      "b_runs": [
+        "003-mvc-feign-orders-r500-rep1",
+        "025-mvc-feign-orders-r500-rep2",
+        "053-mvc-feign-orders-r500-rep3"
+      ],
+      "difference": 0.20379599999999964,
+      "paired_interval": [
+        -0.07886099999999985,
+        5.095629999999999
+      ],
+      "independent_interval": [
+        -0.2351770000000002,
+        5.312372850000001
+      ],
+      "alerts": 1
+    },
+    {
+      "scenario": "orders",
+      "rate": 500,
+      "a": "mvc-resttemplate",
+      "b": "mvc-feign",
+      "metric": "latency_p99_ms",
+      "a_values": [
+        8.128416,
+        87.711588,
+        8.000172
+      ],
+      "b_values": [
+        7.950840390000009,
+        8.251216,
+        7.58764
+      ],
+      "a_runs": [
+        "009-mvc-resttemplate-orders-r500-rep1",
+        "033-mvc-resttemplate-orders-r500-rep2",
+        "055-mvc-resttemplate-orders-r500-rep3"
+      ],
+      "b_runs": [
+        "003-mvc-feign-orders-r500-rep1",
+        "025-mvc-feign-orders-r500-rep2",
+        "053-mvc-feign-orders-r500-rep3"
+      ],
+      "difference": 0.177575609999991,
+      "paired_interval": [
+        0.177575609999991,
+        79.460372
+      ],
+      "independent_interval": [
+        -0.25104400000000027,
+        80.12394800000001
+      ],
+      "alerts": 1
+    },
+    {
+      "scenario": "orders",
+      "rate": 500,
+      "a": "mvc-resttemplate",
+      "b": "mvc-feign",
+      "metric": "successful_rps",
+      "a_values": [
+        500.014951970409,
+        500.0178268838785,
+        500.02080116422314
+      ],
+      "b_values": [
+        500.0066923395737,
+        500.0112689980028,
+        500.0195406516468
+      ],
+      "a_runs": [
+        "009-mvc-resttemplate-orders-r500-rep1",
+        "033-mvc-resttemplate-orders-r500-rep2",
+        "055-mvc-resttemplate-orders-r500-rep3"
+      ],
+      "b_runs": [
+        "003-mvc-feign-orders-r500-rep1",
+        "025-mvc-feign-orders-r500-rep2",
+        "053-mvc-feign-orders-r500-rep3"
+      ],
+      "difference": 0.006557885875736247,
+      "paired_interval": [
+        0.0012605125763229807,
+        0.008259630835311782
+      ],
+      "independent_interval": [
+        -0.004588681237805758,
+        0.014108824649440521
+      ],
+      "alerts": 1
+    },
+    {
+      "scenario": "orders",
+      "rate": 500,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "latency_p95_ms",
+      "a_values": [
+        4.530066,
+        9.578216,
+        4.247409
+      ],
+      "b_values": [
+        6.069712,
+        5.869576,
+        6.37109
+      ],
+      "a_runs": [
+        "009-mvc-resttemplate-orders-r500-rep1",
+        "033-mvc-resttemplate-orders-r500-rep2",
+        "055-mvc-resttemplate-orders-r500-rep3"
+      ],
+      "b_runs": [
+        "002-webflux-orders-r500-rep1",
+        "032-webflux-orders-r500-rep2",
+        "068-webflux-orders-r500-rep3"
+      ],
+      "difference": -1.5396460000000003,
+      "paired_interval": [
+        -2.1236809999999995,
+        3.708639999999999
+      ],
+      "independent_interval": [
+        -2.1236809999999995,
+        3.708639999999999
+      ],
+      "alerts": 1
+    },
+    {
+      "scenario": "orders",
+      "rate": 500,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "latency_p99_ms",
+      "a_values": [
+        8.128416,
+        87.711588,
+        8.000172
+      ],
+      "b_values": [
+        11.12323,
+        10.289184,
+        10.448367
+      ],
+      "a_runs": [
+        "009-mvc-resttemplate-orders-r500-rep1",
+        "033-mvc-resttemplate-orders-r500-rep2",
+        "055-mvc-resttemplate-orders-r500-rep3"
+      ],
+      "b_runs": [
+        "002-webflux-orders-r500-rep1",
+        "032-webflux-orders-r500-rep2",
+        "068-webflux-orders-r500-rep3"
+      ],
+      "difference": -2.3199509999999997,
+      "paired_interval": [
+        -2.994814,
+        77.422404
+      ],
+      "independent_interval": [
+        -3.1230580000000003,
+        77.422404
+      ],
+      "alerts": 1
+    },
+    {
+      "scenario": "orders",
+      "rate": 500,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "successful_rps",
+      "a_values": [
+        500.014951970409,
+        500.0178268838785,
+        500.02080116422314
+      ],
+      "b_values": [
+        500.002438591036,
+        500.0093622005866,
+        500.015700866344
+      ],
+      "a_runs": [
+        "009-mvc-resttemplate-orders-r500-rep1",
+        "033-mvc-resttemplate-orders-r500-rep2",
+        "055-mvc-resttemplate-orders-r500-rep3"
+      ],
+      "b_runs": [
+        "002-webflux-orders-r500-rep1",
+        "032-webflux-orders-r500-rep2",
+        "068-webflux-orders-r500-rep3"
+      ],
+      "difference": 0.008464683291890651,
+      "paired_interval": [
+        0.005100297879153004,
+        0.01251337937299013
+      ],
+      "independent_interval": [
+        -0.0007488959349757351,
+        0.01836257318711887
+      ],
+      "alerts": 1
+    },
+    {
+      "scenario": "orders",
+      "rate": 500,
+      "a": "mvc-feign",
+      "b": "webflux",
+      "metric": "latency_p95_ms",
+      "a_values": [
+        4.2658431499999985,
+        4.482586,
+        4.32627
+      ],
+      "b_values": [
+        6.069712,
+        5.869576,
+        6.37109
+      ],
+      "a_runs": [
+        "003-mvc-feign-orders-r500-rep1",
+        "025-mvc-feign-orders-r500-rep2",
+        "053-mvc-feign-orders-r500-rep3"
+      ],
+      "b_runs": [
+        "002-webflux-orders-r500-rep1",
+        "032-webflux-orders-r500-rep2",
+        "068-webflux-orders-r500-rep3"
+      ],
+      "difference": -1.743442,
+      "paired_interval": [
+        -2.0448199999999996,
+        -1.38699
+      ],
+      "independent_interval": [
+        -2.1052468500000012,
+        -1.38699
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "orders",
+      "rate": 500,
+      "a": "mvc-feign",
+      "b": "webflux",
+      "metric": "latency_p99_ms",
+      "a_values": [
+        7.950840390000009,
+        8.251216,
+        7.58764
+      ],
+      "b_values": [
+        11.12323,
+        10.289184,
+        10.448367
+      ],
+      "a_runs": [
+        "003-mvc-feign-orders-r500-rep1",
+        "025-mvc-feign-orders-r500-rep2",
+        "053-mvc-feign-orders-r500-rep3"
+      ],
+      "b_runs": [
+        "002-webflux-orders-r500-rep1",
+        "032-webflux-orders-r500-rep2",
+        "068-webflux-orders-r500-rep3"
+      ],
+      "difference": -2.4975266099999907,
+      "paired_interval": [
+        -3.172389609999991,
+        -2.037968000000001
+      ],
+      "independent_interval": [
+        -3.535589999999999,
+        -2.037968000000001
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "orders",
+      "rate": 500,
+      "a": "mvc-feign",
+      "b": "webflux",
+      "metric": "successful_rps",
+      "a_values": [
+        500.0066923395737,
+        500.0112689980028,
+        500.0195406516468
+      ],
+      "b_values": [
+        500.002438591036,
+        500.0093622005866,
+        500.015700866344
+      ],
+      "a_runs": [
+        "003-mvc-feign-orders-r500-rep1",
+        "025-mvc-feign-orders-r500-rep2",
+        "053-mvc-feign-orders-r500-rep3"
+      ],
+      "b_runs": [
+        "002-webflux-orders-r500-rep1",
+        "032-webflux-orders-r500-rep2",
+        "068-webflux-orders-r500-rep3"
+      ],
+      "difference": 0.0019067974161544043,
+      "paired_interval": [
+        0.0019067974161544043,
+        0.004253748537678348
+      ],
+      "independent_interval": [
+        -0.009008526770287517,
+        0.01710206061079589
+      ],
+      "alerts": 0
+    },
+    {
+      "scenario": "orders",
+      "rate": 1000,
+      "a": "mvc-resttemplate",
+      "b": "mvc-feign",
+      "metric": "latency_p95_ms",
+      "a_values": [
+        6.888661,
+        7.993828,
+        11.095368749999993
+      ],
+      "b_values": [
+        8.151623,
+        7.932918,
+        8.887937
+      ],
+      "a_runs": [
+        "006-mvc-resttemplate-orders-r1000-rep1",
+        "039-mvc-resttemplate-orders-r1000-rep2",
+        "057-mvc-resttemplate-orders-r1000-rep3"
+      ],
+      "b_runs": [
+        "008-mvc-feign-orders-r1000-rep1",
+        "038-mvc-feign-orders-r1000-rep2",
+        "066-mvc-feign-orders-r1000-rep3"
+      ],
+      "difference": -0.15779500000000102,
+      "paired_interval": [
+        -1.2629620000000008,
+        2.2074317499999925
+      ],
+      "independent_interval": [
+        -1.999276000000001,
+        3.1624507499999934
+      ],
+      "alerts": 3
+    },
+    {
+      "scenario": "orders",
+      "rate": 1000,
+      "a": "mvc-resttemplate",
+      "b": "mvc-feign",
+      "metric": "latency_p99_ms",
+      "a_values": [
+        17.801634,
+        22.215999,
+        33.48320159999993
+      ],
+      "b_values": [
+        26.951761,
+        22.445324,
+        29.507048
+      ],
+      "a_runs": [
+        "006-mvc-resttemplate-orders-r1000-rep1",
+        "039-mvc-resttemplate-orders-r1000-rep2",
+        "057-mvc-resttemplate-orders-r1000-rep3"
+      ],
+      "b_runs": [
+        "008-mvc-feign-orders-r1000-rep1",
+        "038-mvc-feign-orders-r1000-rep2",
+        "066-mvc-feign-orders-r1000-rep3"
+      ],
+      "difference": -4.735762000000001,
+      "paired_interval": [
+        -9.150127000000001,
+        3.976153599999929
+      ],
+      "independent_interval": [
+        -11.705414000000001,
+        11.03787759999993
+      ],
+      "alerts": 3
+    },
+    {
+      "scenario": "orders",
+      "rate": 1000,
+      "a": "mvc-resttemplate",
+      "b": "mvc-feign",
+      "metric": "successful_rps",
+      "a_values": [
+        999.9523036939192,
+        1000.0433369409527,
+        999.8495371539085
+      ],
+      "b_values": [
+        1000.0301934428105,
+        1000.0220425742857,
+        1000.0216212494597
+      ],
+      "a_runs": [
+        "006-mvc-resttemplate-orders-r1000-rep1",
+        "039-mvc-resttemplate-orders-r1000-rep2",
+        "057-mvc-resttemplate-orders-r1000-rep3"
+      ],
+      "b_runs": [
+        "008-mvc-feign-orders-r1000-rep1",
+        "038-mvc-feign-orders-r1000-rep2",
+        "066-mvc-feign-orders-r1000-rep3"
+      ],
+      "difference": -0.06973888036645803,
+      "paired_interval": [
+        -0.17208409555121307,
+        0.021294366667007125
+      ],
+      "independent_interval": [
+        -0.18065628890201424,
+        0.021715691493000122
+      ],
+      "alerts": 3
+    },
+    {
+      "scenario": "orders",
+      "rate": 1000,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "latency_p95_ms",
+      "a_values": [
+        6.888661,
+        7.993828,
+        11.095368749999993
+      ],
+      "b_values": [
+        13.514951,
+        20.158858,
+        19.155673
+      ],
+      "a_runs": [
+        "006-mvc-resttemplate-orders-r1000-rep1",
+        "039-mvc-resttemplate-orders-r1000-rep2",
+        "057-mvc-resttemplate-orders-r1000-rep3"
+      ],
+      "b_runs": [
+        "016-webflux-orders-r1000-rep1",
+        "034-webflux-orders-r1000-rep2",
+        "067-webflux-orders-r1000-rep3"
+      ],
+      "difference": -11.161845,
+      "paired_interval": [
+        -12.165029999999998,
+        -6.62629
+      ],
+      "independent_interval": [
+        -13.270197,
+        -2.4195822500000066
+      ],
+      "alerts": 4
+    },
+    {
+      "scenario": "orders",
+      "rate": 1000,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "latency_p99_ms",
+      "a_values": [
+        17.801634,
+        22.215999,
+        33.48320159999993
+      ],
+      "b_values": [
+        36.020779,
+        42.238894,
+        36.272126
+      ],
+      "a_runs": [
+        "006-mvc-resttemplate-orders-r1000-rep1",
+        "039-mvc-resttemplate-orders-r1000-rep2",
+        "057-mvc-resttemplate-orders-r1000-rep3"
+      ],
+      "b_runs": [
+        "016-webflux-orders-r1000-rep1",
+        "034-webflux-orders-r1000-rep2",
+        "067-webflux-orders-r1000-rep3"
+      ],
+      "difference": -14.056127,
+      "paired_interval": [
+        -20.022895000000002,
+        -2.78892440000007
+      ],
+      "independent_interval": [
+        -24.437260000000002,
+        -2.5375774000000675
+      ],
+      "alerts": 4
+    },
+    {
+      "scenario": "orders",
+      "rate": 1000,
+      "a": "mvc-resttemplate",
+      "b": "webflux",
+      "metric": "successful_rps",
+      "a_values": [
+        999.9523036939192,
+        1000.0433369409527,
+        999.8495371539085
+      ],
+      "b_values": [
+        1000.0158726200209,
+        1000.025402296353,
+        999.9047718718956
+      ],
+      "a_runs": [
+        "006-mvc-resttemplate-orders-r1000-rep1",
+        "039-mvc-resttemplate-orders-r1000-rep2",
+        "057-mvc-resttemplate-orders-r1000-rep3"
+      ],
+      "b_runs": [
+        "016-webflux-orders-r1000-rep1",
+        "034-webflux-orders-r1000-rep2",
+        "067-webflux-orders-r1000-rep3"
+      ],
+      "difference": -0.06356892610165232,
+      "paired_interval": [
+        -0.06356892610165232,
+        0.017934644599677085
+      ],
+      "independent_interval": [
+        -0.1758651424445361,
+        0.1385650690571083
+      ],
+      "alerts": 4
+    },
+    {
+      "scenario": "orders",
+      "rate": 1000,
+      "a": "mvc-feign",
+      "b": "webflux",
+      "metric": "latency_p95_ms",
+      "a_values": [
+        8.151623,
+        7.932918,
+        8.887937
+      ],
+      "b_values": [
+        13.514951,
+        20.158858,
+        19.155673
+      ],
+      "a_runs": [
+        "008-mvc-feign-orders-r1000-rep1",
+        "038-mvc-feign-orders-r1000-rep2",
+        "066-mvc-feign-orders-r1000-rep3"
+      ],
+      "b_runs": [
+        "016-webflux-orders-r1000-rep1",
+        "034-webflux-orders-r1000-rep2",
+        "067-webflux-orders-r1000-rep3"
+      ],
+      "difference": -11.00405,
+      "paired_interval": [
+        -12.225939999999998,
+        -5.363327999999999
+      ],
+      "independent_interval": [
+        -12.225939999999998,
+        -4.627013999999999
+      ],
+      "alerts": 5
+    },
+    {
+      "scenario": "orders",
+      "rate": 1000,
+      "a": "mvc-feign",
+      "b": "webflux",
+      "metric": "latency_p99_ms",
+      "a_values": [
+        26.951761,
+        22.445324,
+        29.507048
+      ],
+      "b_values": [
+        36.020779,
+        42.238894,
+        36.272126
+      ],
+      "a_runs": [
+        "008-mvc-feign-orders-r1000-rep1",
+        "038-mvc-feign-orders-r1000-rep2",
+        "066-mvc-feign-orders-r1000-rep3"
+      ],
+      "b_runs": [
+        "016-webflux-orders-r1000-rep1",
+        "034-webflux-orders-r1000-rep2",
+        "067-webflux-orders-r1000-rep3"
+      ],
+      "difference": -9.320364999999999,
+      "paired_interval": [
+        -19.793570000000003,
+        -6.765077999999999
+      ],
+      "independent_interval": [
+        -19.793570000000003,
+        -6.513730999999996
+      ],
+      "alerts": 5
+    },
+    {
+      "scenario": "orders",
+      "rate": 1000,
+      "a": "mvc-feign",
+      "b": "webflux",
+      "metric": "successful_rps",
+      "a_values": [
+        1000.0301934428105,
+        1000.0220425742857,
+        1000.0216212494597
+      ],
+      "b_values": [
+        1000.0158726200209,
+        1000.025402296353,
+        999.9047718718956
+      ],
+      "a_runs": [
+        "008-mvc-feign-orders-r1000-rep1",
+        "038-mvc-feign-orders-r1000-rep2",
+        "066-mvc-feign-orders-r1000-rep3"
+      ],
+      "b_runs": [
+        "016-webflux-orders-r1000-rep1",
+        "034-webflux-orders-r1000-rep2",
+        "067-webflux-orders-r1000-rep3"
+      ],
+      "difference": 0.00616995426480571,
+      "paired_interval": [
+        -0.00335972206733004,
+        0.11684937756410818
+      ],
+      "independent_interval": [
+        -0.003781046893323037,
+        0.12542157091490935
+      ],
+      "alerts": 5
+    }
+  ],
+  "environment": {
+    "os": "Microsoft Windows NT 10.0.26200.0",
+    "docker_desktop": "Docker Desktop 4.86.0 (236216)",
+    "docker_engine": "29.7.2",
+    "compose": "v5.3.1",
+    "kernel": "6.6.87.2-microsoft-standard-WSL2",
+    "architecture": "x86_64",
+    "docker_logical_cpus": 14,
+    "docker_memory_gib": 31.090511322021484,
+    "physical_cpu_model": "não registrado no lote",
+    "physical_host_ram": "não registrada separadamente; MemTotal é a memória disponível ao Docker",
+    "power_plan": "Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)",
+    "k6": "k6 v1.0.0-labclock1 (commit/41b4984b75-dirty, go1.24.2, linux/amd64)",
+    "timing_revision": "monotonic-anchor-v1",
+    "seconds": 90,
+    "warmup_seconds": 60,
+    "max_vus": 500,
+    "images": [
+      {
+        "service": "postgres",
+        "tag": "postgres:17.4-alpine",
+        "image_id": "sha256:7062a2109c4b51f3c792c7ea01e83ed12ef9a980886e3b3d380a7d2e5f6ce3f5",
+        "manifest_digest": "sha256:0ae695e3d11c7cc82cbed8f3e506233f18cdd40e3fc7622893f6a4d0772a5a09",
+        "cpus": 2,
+        "memory_mib": 768,
+        "cpuset": "sem afinidade explícita",
+        "java_version": null,
+        "jvm_flags": null,
+        "db_pool": null,
+        "http_pool": null,
+        "source": "results/20261015-011234-1ceec5/001-webflux-db-read-r1000-rep1/containers.json"
+      },
+      {
+        "service": "stock-db",
+        "tag": "postgres:17.4-alpine",
+        "image_id": "sha256:7062a2109c4b51f3c792c7ea01e83ed12ef9a980886e3b3d380a7d2e5f6ce3f5",
+        "manifest_digest": "sha256:0ae695e3d11c7cc82cbed8f3e506233f18cdd40e3fc7622893f6a4d0772a5a09",
+        "cpus": 1,
+        "memory_mib": 512,
+        "cpuset": "sem afinidade explícita",
+        "java_version": null,
+        "jvm_flags": null,
+        "db_pool": null,
+        "http_pool": null,
+        "source": "results/20261015-011234-1ceec5/001-webflux-db-read-r1000-rep1/containers.json"
+      },
+      {
+        "service": "stock-service",
+        "tag": "java-performance-lab-stock:local",
+        "image_id": "sha256:1f7de9e3fa3726d89d54ac5fb1de585e37d9709afe6d81efbcdd014fceafb905",
+        "manifest_digest": "sha256:3cdca9078000c66d3c638b721be190dc5246b1f50133e4749f010fe6f6b08189",
+        "cpus": 1,
+        "memory_mib": 640,
+        "cpuset": "sem afinidade explícita",
+        "java_version": "jdk-21.0.12.1+1",
+        "jvm_flags": "-Xms256m -Xmx256m -XX:+UseG1GC -XX:ActiveProcessorCount=1 -Xlog:gc+init=info:stderr",
+        "db_pool": null,
+        "http_pool": null,
+        "source": "results/20261015-011234-1ceec5/001-webflux-db-read-r1000-rep1/containers.json"
+      },
+      {
+        "service": "upstream",
+        "tag": "node:22.14.0-alpine",
+        "image_id": "sha256:9bef0ef1e268f60627da9ba7d7605e8831d5b56ad07487d24d1aa386336d1944",
+        "manifest_digest": "sha256:01393fe5a51489b63da0ab51aa8e0a7ff9990132917cf20cfc3d46f5e36c0e48",
+        "cpus": 1,
+        "memory_mib": 128,
+        "cpuset": "sem afinidade explícita",
+        "java_version": null,
+        "jvm_flags": null,
+        "db_pool": null,
+        "http_pool": null,
+        "source": "results/20261015-011234-1ceec5/001-webflux-db-read-r1000-rep1/containers.json"
+      },
+      {
+        "service": "webflux",
+        "tag": "java-performance-lab-webflux:local",
+        "image_id": "sha256:9b1f00d69f49d266e12f17c6e7a38b0057342539c8aba4b528e580ed54e159c9",
+        "manifest_digest": "sha256:724e4da1c2ae0d335a75a269d9f7ca1991c9e66b1e20ba27f322f83cfeee85dd",
+        "cpus": 2,
+        "memory_mib": 1024,
+        "cpuset": "sem afinidade explícita",
+        "java_version": "jdk-21.0.12.1+1",
+        "jvm_flags": "-Xms512m -Xmx512m -XX:+UseG1GC -XX:ActiveProcessorCount=2 -Xlog:gc+init=info:stderr",
+        "db_pool": "20",
+        "http_pool": "100",
+        "source": "results/20261015-011234-1ceec5/001-webflux-db-read-r1000-rep1/containers.json"
+      },
+      {
+        "service": "k6",
+        "tag": "java-performance-lab-k6:1.0.0-labclock1",
+        "image_id": "sha256:38fce4ea391fc665c6610015d138862789ae28f7cfb69051b5acceabc75d7ec5",
+        "manifest_digest": "sha256:584818a42d4c16d330cc4cf5cf56968fd82a13e98267891052e5515c8ca0760f",
+        "cpus": 2,
+        "memory_mib": 1024,
+        "cpuset": "sem afinidade explícita",
+        "java_version": null,
+        "jvm_flags": null,
+        "db_pool": null,
+        "http_pool": null,
+        "source": "results/20261015-011234-1ceec5/001-webflux-db-read-r1000-rep1/generator.json"
+      },
+      {
+        "service": "mvc-feign",
+        "tag": "java-performance-lab-mvc:local",
+        "image_id": "sha256:04c318961d1d03d103bf053efb7f1d3d8cdaebc61bec5606b07fd8f7183d4b80",
+        "manifest_digest": "sha256:80f10a87a557dfd42e15e9b9372f10c813a1b5eee8db2a27880224e54c35b6d1",
+        "cpus": 2,
+        "memory_mib": 1024,
+        "cpuset": "sem afinidade explícita",
+        "java_version": "jdk-21.0.12.1+1",
+        "jvm_flags": "-Xms512m -Xmx512m -XX:+UseG1GC -XX:ActiveProcessorCount=2 -Xlog:gc+init=info:stderr",
+        "db_pool": "20",
+        "http_pool": "100",
+        "source": "results/20261015-011234-1ceec5/003-mvc-feign-orders-r500-rep1/containers.json"
+      },
+      {
+        "service": "mvc-resttemplate",
+        "tag": "java-performance-lab-mvc:local",
+        "image_id": "sha256:04c318961d1d03d103bf053efb7f1d3d8cdaebc61bec5606b07fd8f7183d4b80",
+        "manifest_digest": "sha256:80f10a87a557dfd42e15e9b9372f10c813a1b5eee8db2a27880224e54c35b6d1",
+        "cpus": 2,
+        "memory_mib": 1024,
+        "cpuset": "sem afinidade explícita",
+        "java_version": "jdk-21.0.12.1+1",
+        "jvm_flags": "-Xms512m -Xmx512m -XX:+UseG1GC -XX:ActiveProcessorCount=2 -Xlog:gc+init=info:stderr",
+        "db_pool": "20",
+        "http_pool": "100",
+        "source": "results/20261015-011234-1ceec5/005-mvc-resttemplate-db-read-r1000-rep1/containers.json"
+      }
+    ],
+    "poms": [
+      {
+        "module": "mvc-jdbc",
+        "source_hash_matches": true,
+        "boot": "4.0.3",
+        "cloud": "2025.1.1"
+      },
+      {
+        "module": "webflux-r2dbc",
+        "source_hash_matches": true,
+        "boot": "4.0.3",
+        "cloud": "2025.1.1"
+      },
+      {
+        "module": "stock-service",
+        "source_hash_matches": true,
+        "boot": "4.0.3",
+        "cloud": "2025.1.1"
+      }
+    ]
+  },
+  "controls": [
+    {
+      "batch": "20261005-010519-c1d0d5",
+      "values": [
+        {
+          "rate": 200,
+          "p95_median": 2.184370249999999
+        },
+        {
+          "rate": 500,
+          "p95_median": 1.3370465
+        },
+        {
+          "rate": 1000,
+          "p95_median": 1.22964815
+        }
+      ],
+      "range_ms": 0.9547220999999988
+    },
+    {
+      "batch": "20261015-011234-1ceec5",
+      "values": [
+        {
+          "rate": 200,
+          "p95_median": 1.23737955
+        },
+        {
+          "rate": 500,
+          "p95_median": 1.127508
+        },
+        {
+          "rate": 1000,
+          "p95_median": 1.091713
+        }
+      ],
+      "range_ms": 0.14566655000000006
+    }
+  ],
+  "warmup": [
+    {
+      "run": "001-webflux-db-read-r1000-rep1",
+      "variant": "webflux",
+      "rate": 1000,
+      "requests": 39745,
+      "correct": 39745,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 14999,
+      "plateau_correct": 14999
+    },
+    {
+      "run": "002-webflux-orders-r500-rep1",
+      "variant": "webflux",
+      "rate": 500,
+      "requests": 19870,
+      "correct": 19870,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 7502,
+      "plateau_correct": 7502
+    },
+    {
+      "run": "003-mvc-feign-orders-r500-rep1",
+      "variant": "mvc-feign",
+      "rate": 500,
+      "requests": 19871,
+      "correct": 19868,
+      "failures": 3,
+      "dropped": 0,
+      "plateau_requests": 7501,
+      "plateau_correct": 7501
+    },
+    {
+      "run": "004-mvc-feign-orders-r200-rep1",
+      "variant": "mvc-feign",
+      "rate": 200,
+      "requests": 7948,
+      "correct": 7947,
+      "failures": 1,
+      "dropped": 0,
+      "plateau_requests": 3000,
+      "plateau_correct": 3000
+    },
+    {
+      "run": "005-mvc-resttemplate-db-read-r1000-rep1",
+      "variant": "mvc-resttemplate",
+      "rate": 1000,
+      "requests": 39743,
+      "correct": 39743,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 14999,
+      "plateau_correct": 14999
+    },
+    {
+      "run": "006-mvc-resttemplate-orders-r1000-rep1",
+      "variant": "mvc-resttemplate",
+      "rate": 1000,
+      "requests": 39738,
+      "correct": 39738,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 15005,
+      "plateau_correct": 15005
+    },
+    {
+      "run": "007-inventory-inventory-r500-rep1",
+      "variant": "inventory",
+      "rate": 500,
+      "requests": 19871,
+      "correct": 19871,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 7500,
+      "plateau_correct": 7500
+    },
+    {
+      "run": "008-mvc-feign-orders-r1000-rep1",
+      "variant": "mvc-feign",
+      "rate": 1000,
+      "requests": 39743,
+      "correct": 39736,
+      "failures": 7,
+      "dropped": 0,
+      "plateau_requests": 15000,
+      "plateau_correct": 15000
+    },
+    {
+      "run": "009-mvc-resttemplate-orders-r500-rep1",
+      "variant": "mvc-resttemplate",
+      "rate": 500,
+      "requests": 19866,
+      "correct": 19866,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 7501,
+      "plateau_correct": 7501
+    },
+    {
+      "run": "010-webflux-db-write-r500-rep1",
+      "variant": "webflux",
+      "rate": 500,
+      "requests": 19872,
+      "correct": 19872,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 7500,
+      "plateau_correct": 7500
+    },
+    {
+      "run": "011-inventory-inventory-r200-rep1",
+      "variant": "inventory",
+      "rate": 200,
+      "requests": 7948,
+      "correct": 7948,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 3000,
+      "plateau_correct": 3000
+    },
+    {
+      "run": "012-webflux-db-write-r1000-rep1",
+      "variant": "webflux",
+      "rate": 1000,
+      "requests": 39662,
+      "correct": 39662,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 15001,
+      "plateau_correct": 15001
+    },
+    {
+      "run": "013-mvc-resttemplate-db-write-r1000-rep1",
+      "variant": "mvc-resttemplate",
+      "rate": 1000,
+      "requests": 39743,
+      "correct": 39743,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 15000,
+      "plateau_correct": 15000
+    },
+    {
+      "run": "014-mvc-resttemplate-db-write-r500-rep1",
+      "variant": "mvc-resttemplate",
+      "rate": 500,
+      "requests": 19868,
+      "correct": 19868,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 7500,
+      "plateau_correct": 7500
+    },
+    {
+      "run": "015-webflux-db-read-r500-rep1",
+      "variant": "webflux",
+      "rate": 500,
+      "requests": 19872,
+      "correct": 19872,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 7501,
+      "plateau_correct": 7501
+    },
+    {
+      "run": "016-webflux-orders-r1000-rep1",
+      "variant": "webflux",
+      "rate": 1000,
+      "requests": 39657,
+      "correct": 39657,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 15004,
+      "plateau_correct": 15004
+    },
+    {
+      "run": "017-webflux-db-write-r200-rep1",
+      "variant": "webflux",
+      "rate": 200,
+      "requests": 7948,
+      "correct": 7948,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 3000,
+      "plateau_correct": 3000
+    },
+    {
+      "run": "018-mvc-resttemplate-orders-r200-rep1",
+      "variant": "mvc-resttemplate",
+      "rate": 200,
+      "requests": 7948,
+      "correct": 7948,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 3000,
+      "plateau_correct": 3000
+    },
+    {
+      "run": "019-webflux-db-read-r200-rep1",
+      "variant": "webflux",
+      "rate": 200,
+      "requests": 7948,
+      "correct": 7948,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 2999,
+      "plateau_correct": 2999
+    },
+    {
+      "run": "020-webflux-orders-r200-rep1",
+      "variant": "webflux",
+      "rate": 200,
+      "requests": 7948,
+      "correct": 7948,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 3001,
+      "plateau_correct": 3001
+    },
+    {
+      "run": "021-inventory-inventory-r1000-rep1",
+      "variant": "inventory",
+      "rate": 1000,
+      "requests": 39740,
+      "correct": 39740,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 14998,
+      "plateau_correct": 14998
+    },
+    {
+      "run": "022-mvc-resttemplate-db-read-r200-rep1",
+      "variant": "mvc-resttemplate",
+      "rate": 200,
+      "requests": 7946,
+      "correct": 7946,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 3000,
+      "plateau_correct": 3000
+    },
+    {
+      "run": "023-mvc-resttemplate-db-read-r500-rep1",
+      "variant": "mvc-resttemplate",
+      "rate": 500,
+      "requests": 19871,
+      "correct": 19871,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 7500,
+      "plateau_correct": 7500
+    },
+    {
+      "run": "024-mvc-resttemplate-db-write-r200-rep1",
+      "variant": "mvc-resttemplate",
+      "rate": 200,
+      "requests": 7948,
+      "correct": 7948,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 3000,
+      "plateau_correct": 3000
+    },
+    {
+      "run": "025-mvc-feign-orders-r500-rep2",
+      "variant": "mvc-feign",
+      "rate": 500,
+      "requests": 19871,
+      "correct": 19869,
+      "failures": 2,
+      "dropped": 0,
+      "plateau_requests": 7501,
+      "plateau_correct": 7501
+    },
+    {
+      "run": "026-inventory-inventory-r500-rep2",
+      "variant": "inventory",
+      "rate": 500,
+      "requests": 19870,
+      "correct": 19870,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 7499,
+      "plateau_correct": 7499
+    },
+    {
+      "run": "027-mvc-resttemplate-db-write-r200-rep2",
+      "variant": "mvc-resttemplate",
+      "rate": 200,
+      "requests": 7948,
+      "correct": 7948,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 3000,
+      "plateau_correct": 3000
+    },
+    {
+      "run": "028-inventory-inventory-r1000-rep2",
+      "variant": "inventory",
+      "rate": 1000,
+      "requests": 39742,
+      "correct": 39742,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 15000,
+      "plateau_correct": 15000
+    },
+    {
+      "run": "029-webflux-orders-r200-rep2",
+      "variant": "webflux",
+      "rate": 200,
+      "requests": 7947,
+      "correct": 7947,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 3000,
+      "plateau_correct": 3000
+    },
+    {
+      "run": "030-mvc-resttemplate-db-read-r1000-rep2",
+      "variant": "mvc-resttemplate",
+      "rate": 1000,
+      "requests": 39663,
+      "correct": 39663,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 14998,
+      "plateau_correct": 14998
+    },
+    {
+      "run": "031-webflux-db-write-r1000-rep2",
+      "variant": "webflux",
+      "rate": 1000,
+      "requests": 39668,
+      "correct": 39668,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 15003,
+      "plateau_correct": 15003
+    },
+    {
+      "run": "032-webflux-orders-r500-rep2",
+      "variant": "webflux",
+      "rate": 500,
+      "requests": 19871,
+      "correct": 19871,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 7501,
+      "plateau_correct": 7501
+    },
+    {
+      "run": "033-mvc-resttemplate-orders-r500-rep2",
+      "variant": "mvc-resttemplate",
+      "rate": 500,
+      "requests": 19872,
+      "correct": 19872,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 7502,
+      "plateau_correct": 7502
+    },
+    {
+      "run": "034-webflux-orders-r1000-rep2",
+      "variant": "webflux",
+      "rate": 1000,
+      "requests": 39656,
+      "correct": 39656,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 15004,
+      "plateau_correct": 15004
+    },
+    {
+      "run": "035-webflux-db-write-r500-rep2",
+      "variant": "webflux",
+      "rate": 500,
+      "requests": 19867,
+      "correct": 19867,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 7500,
+      "plateau_correct": 7500
+    },
+    {
+      "run": "036-webflux-db-read-r1000-rep2",
+      "variant": "webflux",
+      "rate": 1000,
+      "requests": 39740,
+      "correct": 39740,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 14999,
+      "plateau_correct": 14999
+    },
+    {
+      "run": "037-webflux-db-read-r200-rep2",
+      "variant": "webflux",
+      "rate": 200,
+      "requests": 7948,
+      "correct": 7948,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 3001,
+      "plateau_correct": 3001
+    },
+    {
+      "run": "038-mvc-feign-orders-r1000-rep2",
+      "variant": "mvc-feign",
+      "rate": 1000,
+      "requests": 39732,
+      "correct": 39731,
+      "failures": 1,
+      "dropped": 0,
+      "plateau_requests": 15004,
+      "plateau_correct": 15004
+    },
+    {
+      "run": "039-mvc-resttemplate-orders-r1000-rep2",
+      "variant": "mvc-resttemplate",
+      "rate": 1000,
+      "requests": 39741,
+      "correct": 39741,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 15000,
+      "plateau_correct": 15000
+    },
+    {
+      "run": "040-webflux-db-read-r500-rep2",
+      "variant": "webflux",
+      "rate": 500,
+      "requests": 19870,
+      "correct": 19870,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 7499,
+      "plateau_correct": 7499
+    },
+    {
+      "run": "041-inventory-inventory-r200-rep2",
+      "variant": "inventory",
+      "rate": 200,
+      "requests": 7948,
+      "correct": 7948,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 3000,
+      "plateau_correct": 3000
+    },
+    {
+      "run": "042-mvc-resttemplate-orders-r200-rep2",
+      "variant": "mvc-resttemplate",
+      "rate": 200,
+      "requests": 7931,
+      "correct": 7931,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 3000,
+      "plateau_correct": 3000
+    },
+    {
+      "run": "043-mvc-feign-orders-r200-rep2",
+      "variant": "mvc-feign",
+      "rate": 200,
+      "requests": 7948,
+      "correct": 7948,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 3001,
+      "plateau_correct": 3001
+    },
+    {
+      "run": "044-mvc-resttemplate-db-write-r1000-rep2",
+      "variant": "mvc-resttemplate",
+      "rate": 1000,
+      "requests": 39738,
+      "correct": 39738,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 15003,
+      "plateau_correct": 15003
+    },
+    {
+      "run": "045-mvc-resttemplate-db-read-r200-rep2",
+      "variant": "mvc-resttemplate",
+      "rate": 200,
+      "requests": 7948,
+      "correct": 7948,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 3000,
+      "plateau_correct": 3000
+    },
+    {
+      "run": "046-mvc-resttemplate-db-write-r500-rep2",
+      "variant": "mvc-resttemplate",
+      "rate": 500,
+      "requests": 19871,
+      "correct": 19871,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 7501,
+      "plateau_correct": 7501
+    },
+    {
+      "run": "047-mvc-resttemplate-db-read-r500-rep2",
+      "variant": "mvc-resttemplate",
+      "rate": 500,
+      "requests": 19871,
+      "correct": 19871,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 7499,
+      "plateau_correct": 7499
+    },
+    {
+      "run": "048-webflux-db-write-r200-rep2",
+      "variant": "webflux",
+      "rate": 200,
+      "requests": 7948,
+      "correct": 7948,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 3000,
+      "plateau_correct": 3000
+    },
+    {
+      "run": "049-mvc-resttemplate-db-read-r500-rep3",
+      "variant": "mvc-resttemplate",
+      "rate": 500,
+      "requests": 19871,
+      "correct": 19871,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 7499,
+      "plateau_correct": 7499
+    },
+    {
+      "run": "050-inventory-inventory-r500-rep3",
+      "variant": "inventory",
+      "rate": 500,
+      "requests": 19870,
+      "correct": 19870,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 7500,
+      "plateau_correct": 7500
+    },
+    {
+      "run": "051-webflux-db-write-r200-rep3",
+      "variant": "webflux",
+      "rate": 200,
+      "requests": 7948,
+      "correct": 7948,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 3001,
+      "plateau_correct": 3001
+    },
+    {
+      "run": "052-webflux-db-write-r1000-rep3",
+      "variant": "webflux",
+      "rate": 1000,
+      "requests": 39743,
+      "correct": 39743,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 14999,
+      "plateau_correct": 14999
+    },
+    {
+      "run": "053-mvc-feign-orders-r500-rep3",
+      "variant": "mvc-feign",
+      "rate": 500,
+      "requests": 19870,
+      "correct": 19869,
+      "failures": 1,
+      "dropped": 0,
+      "plateau_requests": 7500,
+      "plateau_correct": 7500
+    },
+    {
+      "run": "054-webflux-db-read-r1000-rep3",
+      "variant": "webflux",
+      "rate": 1000,
+      "requests": 39743,
+      "correct": 39743,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 14998,
+      "plateau_correct": 14998
+    },
+    {
+      "run": "055-mvc-resttemplate-orders-r500-rep3",
+      "variant": "mvc-resttemplate",
+      "rate": 500,
+      "requests": 19871,
+      "correct": 19871,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 7501,
+      "plateau_correct": 7501
+    },
+    {
+      "run": "056-inventory-inventory-r200-rep3",
+      "variant": "inventory",
+      "rate": 200,
+      "requests": 7948,
+      "correct": 7948,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 3000,
+      "plateau_correct": 3000
+    },
+    {
+      "run": "057-mvc-resttemplate-orders-r1000-rep3",
+      "variant": "mvc-resttemplate",
+      "rate": 1000,
+      "requests": 39744,
+      "correct": 39744,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 15002,
+      "plateau_correct": 15002
+    },
+    {
+      "run": "058-webflux-db-read-r200-rep3",
+      "variant": "webflux",
+      "rate": 200,
+      "requests": 7948,
+      "correct": 7948,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 3000,
+      "plateau_correct": 3000
+    },
+    {
+      "run": "059-mvc-feign-orders-r200-rep3",
+      "variant": "mvc-feign",
+      "rate": 200,
+      "requests": 7948,
+      "correct": 7948,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 3001,
+      "plateau_correct": 3001
+    },
+    {
+      "run": "060-mvc-resttemplate-db-write-r200-rep3",
+      "variant": "mvc-resttemplate",
+      "rate": 200,
+      "requests": 7948,
+      "correct": 7948,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 3000,
+      "plateau_correct": 3000
+    },
+    {
+      "run": "061-mvc-resttemplate-db-read-r200-rep3",
+      "variant": "mvc-resttemplate",
+      "rate": 200,
+      "requests": 7948,
+      "correct": 7948,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 3000,
+      "plateau_correct": 3000
+    },
+    {
+      "run": "062-mvc-resttemplate-db-write-r1000-rep3",
+      "variant": "mvc-resttemplate",
+      "rate": 1000,
+      "requests": 39742,
+      "correct": 39742,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 15001,
+      "plateau_correct": 15001
+    },
+    {
+      "run": "063-mvc-resttemplate-orders-r200-rep3",
+      "variant": "mvc-resttemplate",
+      "rate": 200,
+      "requests": 7948,
+      "correct": 7948,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 3000,
+      "plateau_correct": 3000
+    },
+    {
+      "run": "064-mvc-resttemplate-db-read-r1000-rep3",
+      "variant": "mvc-resttemplate",
+      "rate": 1000,
+      "requests": 39742,
+      "correct": 39742,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 14998,
+      "plateau_correct": 14998
+    },
+    {
+      "run": "065-webflux-db-read-r500-rep3",
+      "variant": "webflux",
+      "rate": 500,
+      "requests": 19871,
+      "correct": 19871,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 7499,
+      "plateau_correct": 7499
+    },
+    {
+      "run": "066-mvc-feign-orders-r1000-rep3",
+      "variant": "mvc-feign",
+      "rate": 1000,
+      "requests": 39743,
+      "correct": 39740,
+      "failures": 3,
+      "dropped": 0,
+      "plateau_requests": 15002,
+      "plateau_correct": 15002
+    },
+    {
+      "run": "067-webflux-orders-r1000-rep3",
+      "variant": "webflux",
+      "rate": 1000,
+      "requests": 39744,
+      "correct": 39744,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 15030,
+      "plateau_correct": 15030
+    },
+    {
+      "run": "068-webflux-orders-r500-rep3",
+      "variant": "webflux",
+      "rate": 500,
+      "requests": 19872,
+      "correct": 19872,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 7501,
+      "plateau_correct": 7501
+    },
+    {
+      "run": "069-webflux-db-write-r500-rep3",
+      "variant": "webflux",
+      "rate": 500,
+      "requests": 19871,
+      "correct": 19871,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 7499,
+      "plateau_correct": 7499
+    },
+    {
+      "run": "070-webflux-orders-r200-rep3",
+      "variant": "webflux",
+      "rate": 200,
+      "requests": 7947,
+      "correct": 7947,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 3001,
+      "plateau_correct": 3001
+    },
+    {
+      "run": "071-inventory-inventory-r1000-rep3",
+      "variant": "inventory",
+      "rate": 1000,
+      "requests": 39741,
+      "correct": 39741,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 14999,
+      "plateau_correct": 14999
+    },
+    {
+      "run": "072-mvc-resttemplate-db-write-r500-rep3",
+      "variant": "mvc-resttemplate",
+      "rate": 500,
+      "requests": 19830,
+      "correct": 19830,
+      "failures": 0,
+      "dropped": 0,
+      "plateau_requests": 7501,
+      "plateau_correct": 7501
+    }
+  ],
+  "measurement_exceptions": [
+    {
+      "run": "057-mvc-resttemplate-orders-r1000-rep3",
+      "expected": 90000,
+      "observed": 89998,
+      "correct": 89998,
+      "dropped": 0
+    }
+  ],
+  "sources": [
+    "results/20261015-011234-1ceec5/metadata.json",
+    "results/20261015-011234-1ceec5/docker-info.json",
+    "results/20261015-011234-1ceec5/docker-version.json",
+    "results/20261015-011234-1ceec5/source-hashes.csv",
+    "results/20261015-011234-1ceec5/*/result.json",
+    "results/20261015-011234-1ceec5/*/quality.json",
+    "results/20261015-011234-1ceec5/*/warmup/row.json",
+    "results/20261015-011234-1ceec5/*/containers.json",
+    "results/20261015-011234-1ceec5/*/generator.json"
+  ]
+}

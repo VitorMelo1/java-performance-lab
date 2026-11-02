@@ -1,0 +1,50 @@
+{
+  "batch": "20260928-171209-bc17aa",
+  "runs": 84,
+  "requests": 1574991,
+  "successes": 1574292,
+  "errors": 699,
+  "dropped_iterations": 78818,
+  "dropped_runs": 20,
+  "error_runs": 5,
+  "warmup_failures": 0,
+  "resource_issues": [],
+  "image_ids": {
+    "k6": [
+      "sha256:f21270290d702cbf0a7d6ba5d7ed100b63bcb233b558b885ed787547b3488279"
+    ],
+    "mvc-resttemplate": [
+      "sha256:c259468b712e47d38a98f2ca5927503fe4ac1d5b10295129e532315d84c58f15"
+    ],
+    "postgres": [
+      "sha256:7062a2109c4b51f3c792c7ea01e83ed12ef9a980886e3b3d380a7d2e5f6ce3f5"
+    ],
+    "upstream": [
+      "sha256:9bef0ef1e268f60627da9ba7d7605e8831d5b56ad07487d24d1aa386336d1944"
+    ],
+    "webflux": [
+      "sha256:624aa3b5a1cdab2ea44fbb6d41432ce7174370799af9d55aed498130ebfcc827"
+    ],
+    "mvc-feign": [
+      "sha256:c259468b712e47d38a98f2ca5927503fe4ac1d5b10295129e532315d84c58f15"
+    ]
+  },
+  "metadata": {
+    "startedUtc": "2026-09-28T20:12:09.8222131Z",
+    "quick": false,
+    "seconds": 45,
+    "warmupSeconds": 15,
+    "delayMs": 100,
+    "maxVus": 500,
+    "seed": 20260928,
+    "os": "Microsoft Windows NT 10.0.26200.0",
+    "processors": 14,
+    "otherContainers": 0
+  },
+  "source_hash_mismatches": [],
+  "review_notes": [
+    "otherContainers da coleta inicial não é confiável: Docker rejeita o filtro negativo usado no script original.",
+    "services.log da coleta inicial não inclui explicitamente os containers Java ativos; causas das falhas de API não foram preservadas nesses logs.",
+    "source_hash_mismatches refere-se à conferência inicial, antes das correções posteriores do protocolo."
+  ]
+}

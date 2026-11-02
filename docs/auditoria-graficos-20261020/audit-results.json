@@ -1,0 +1,472 @@
+{
+  "scope": "Auditoria de relatorio, unidades, agregacao e SVG. Lote 20261015-011234-1ceec5. Nenhum benchmark iniciado. Sem reprocessamento completo de samples.json.gz enquanto ha carga em andamento.",
+  "checks": [
+    {
+      "name": "p50/p95/p99 e vazao: 72 rodadas",
+      "expected": "result.json, quality.json e resumo do k6 coerentes",
+      "actual": "216 percentis e 72 vazoes conferidos",
+      "passed": true,
+      "evidence": "Arquivos pequenos preservados; nao houve releitura de samples.json.gz nesta auditoria."
+    },
+    {
+      "name": "Geometria das barras e pontos de p95",
+      "expected": "larguras proporcionais e pontos nas posicoes das repeticoes",
+      "actual": "24 barras e 72 pontos corretos",
+      "passed": true,
+      "evidence": "SVGs originais e result.json, com calculo independente."
+    },
+    {
+      "name": "Valor zero desenhado no grafico",
+      "expected": "largura zero para valor zero",
+      "actual": "48 barras de largura 1 px com contagem zero",
+      "passed": false,
+      "evidence": "Math.max(1, x(v)-left) em chart(). Os rotulos numericos continuam 0.00."
+    },
+    {
+      "name": "Consistencia da carga entregue",
+      "expected": "mesmo criterio em quality.json e report",
+      "actual": [
+        "057-mvc-resttemplate-orders-r1000-rep3"
+      ],
+      "passed": false,
+      "evidence": "quality exige observado >= alvo-1; report aceita fracao >= 0.999. A rodada 057 tem 89998/90000."
+    },
+    {
+      "name": "CPU: conversao ns para ms por resposta",
+      "expected": "2 segundos / 45000 respostas * 1000",
+      "actual": 0.044444444444444446,
+      "passed": true,
+      "evidence": "Fixture com contador de 1e9 para 3e9 ns. A unidade foi calculada corretamente."
+    },
+    {
+      "name": "Memoria total rotulada como heap",
+      "expected": "heap indisponivel sem filtro por area",
+      "actual": "300",
+      "passed": false,
+      "evidence": "O campo recebe 300 bytes de heap+nonheap sem filtrar. Confirmado tambem nos registros reais."
+    },
+    {
+      "name": "Metrica de timeout ausente",
+      "expected": "null/indisponivel",
+      "actual": 0,
+      "passed": false,
+      "evidence": "reduce inicia em zero e ignora ausencias. WebFlux nao tem contador Hikari; zero nao comprova ausencia de timeouts."
+    },
+    {
+      "name": "Histograma com contador que diminuiu",
+      "expected": "janela rejeitada ou sinalizada como invalida",
+      "actual": {
+        "samples": 40,
+        "requests": 40,
+        "p50_ms": 10.000000000000002,
+        "p95_ms": null,
+        "p99_ms": null,
+        "mean_ms": 7.5,
+        "saturated": true,
+        "highest_bound_ms": 10
+      },
+      "passed": false,
+      "evidence": "Uma queda de contador e truncada para zero; a funcao ainda produz p50 e media, em vez de rejeitar a janela. Caso sintetico, nao constatado no lote concluido."
+    },
+    {
+      "name": "Janela de CPU/GC apresentada como exata",
+      "expected": "informar limites reais da amostragem, nao apenas a duracao k6",
+      "actual": {
+        "min": 93.521,
+        "max": 96.76,
+        "median": 94.888
+      },
+      "passed": false,
+      "evidence": "A subtracao usa a ultima amostra do aquecimento e a ultima da medicao. Intervalos nao coincidem exatamente com a carga de 90 s. Isso nao invalida p95 HTTP, mas exige corrigir/qualificar CPU e GC."
+    }
+  ],
+  "sourceHashes": [
+    {
+      "path": "C:\\Faculdade\\codes\\ArtigoCientifico\\Analise de desempenho - Spring WebFlux-R2DBC vs Spring MVC-JDBC\\benchmarks\\report.mjs",
+      "sha256": "EF7E3D8D9056A73871030F5BF7AE0D1408EBAD7F03B044211F42F10F368A729C"
+    },
+    {
+      "path": "C:\\Faculdade\\codes\\ArtigoCientifico\\Analise de desempenho - Spring WebFlux-R2DBC vs Spring MVC-JDBC\\benchmarks\\catalog.mjs",
+      "sha256": "410BB3F88C9E09D1686FF28C8D41047167DA85C7F2035ED105119DD83A8E8B97"
+    },
+    {
+      "path": "C:\\Faculdade\\codes\\ArtigoCientifico\\Analise de desempenho - Spring WebFlux-R2DBC vs Spring MVC-JDBC\\benchmarks\\load.js",
+      "sha256": "05434EA537571E219B4F8037893D0229B96B5033057014A74C5D537F88A3D262"
+    },
+    {
+      "path": "C:\\Faculdade\\codes\\ArtigoCientifico\\Analise de desempenho - Spring WebFlux-R2DBC vs Spring MVC-JDBC\\benchmarks\\quality.mjs",
+      "sha256": "10C1EAB07E105220E4071A4C6346A1BA136F3EABF0901DF52B54E09F1B2155C1"
+    },
+    {
+      "path": "C:\\Faculdade\\codes\\ArtigoCientifico\\Analise de desempenho - Spring WebFlux-R2DBC vs Spring MVC-JDBC\\scripts\\Benchmark.ps1",
+      "sha256": "9F4FE4571DFD1359FF56CFF194F4006F9C4ED8AE10BA0208AFB0BBF8C2A3C116"
+    },
+    {
+      "path": "C:\\Faculdade\\codes\\ArtigoCientifico\\Analise de desempenho - Spring WebFlux-R2DBC vs Spring MVC-JDBC\\scripts\\Common.ps1",
+      "sha256": "132123E97F9E75C6109EFB3DB949A3BFE97C2E0583892F73CB8A102563D431F2"
+    }
+  ],
+  "intervals": [
+    {
+      "run": "001-webflux-db-read-r1000-rep1",
+      "seconds": 95.335,
+      "scheduled": 90
+    },
+    {
+      "run": "002-webflux-orders-r500-rep1",
+      "seconds": 96.318,
+      "scheduled": 90
+    },
+    {
+      "run": "003-mvc-feign-orders-r500-rep1",
+      "seconds": 94.744,
+      "scheduled": 90
+    },
+    {
+      "run": "004-mvc-feign-orders-r200-rep1",
+      "seconds": 94.888,
+      "scheduled": 90
+    },
+    {
+      "run": "005-mvc-resttemplate-db-read-r1000-rep1",
+      "seconds": 94.761,
+      "scheduled": 90
+    },
+    {
+      "run": "006-mvc-resttemplate-orders-r1000-rep1",
+      "seconds": 94.706,
+      "scheduled": 90
+    },
+    {
+      "run": "007-inventory-inventory-r500-rep1",
+      "seconds": 95.387,
+      "scheduled": 90
+    },
+    {
+      "run": "008-mvc-feign-orders-r1000-rep1",
+      "seconds": 94.634,
+      "scheduled": 90
+    },
+    {
+      "run": "009-mvc-resttemplate-orders-r500-rep1",
+      "seconds": 94.822,
+      "scheduled": 90
+    },
+    {
+      "run": "010-webflux-db-write-r500-rep1",
+      "seconds": 94.858,
+      "scheduled": 90
+    },
+    {
+      "run": "011-inventory-inventory-r200-rep1",
+      "seconds": 95.288,
+      "scheduled": 90
+    },
+    {
+      "run": "012-webflux-db-write-r1000-rep1",
+      "seconds": 95.33,
+      "scheduled": 90
+    },
+    {
+      "run": "013-mvc-resttemplate-db-write-r1000-rep1",
+      "seconds": 94.829,
+      "scheduled": 90
+    },
+    {
+      "run": "014-mvc-resttemplate-db-write-r500-rep1",
+      "seconds": 93.8,
+      "scheduled": 90
+    },
+    {
+      "run": "015-webflux-db-read-r500-rep1",
+      "seconds": 94.888,
+      "scheduled": 90
+    },
+    {
+      "run": "016-webflux-orders-r1000-rep1",
+      "seconds": 95.402,
+      "scheduled": 90
+    },
+    {
+      "run": "017-webflux-db-write-r200-rep1",
+      "seconds": 94.827,
+      "scheduled": 90
+    },
+    {
+      "run": "018-mvc-resttemplate-orders-r200-rep1",
+      "seconds": 95.152,
+      "scheduled": 90
+    },
+    {
+      "run": "019-webflux-db-read-r200-rep1",
+      "seconds": 95.237,
+      "scheduled": 90
+    },
+    {
+      "run": "020-webflux-orders-r200-rep1",
+      "seconds": 94.207,
+      "scheduled": 90
+    },
+    {
+      "run": "021-inventory-inventory-r1000-rep1",
+      "seconds": 94.904,
+      "scheduled": 90
+    },
+    {
+      "run": "022-mvc-resttemplate-db-read-r200-rep1",
+      "seconds": 93.819,
+      "scheduled": 90
+    },
+    {
+      "run": "023-mvc-resttemplate-db-read-r500-rep1",
+      "seconds": 94.947,
+      "scheduled": 90
+    },
+    {
+      "run": "024-mvc-resttemplate-db-write-r200-rep1",
+      "seconds": 94.826,
+      "scheduled": 90
+    },
+    {
+      "run": "025-mvc-feign-orders-r500-rep2",
+      "seconds": 94.812,
+      "scheduled": 90
+    },
+    {
+      "run": "026-inventory-inventory-r500-rep2",
+      "seconds": 96.044,
+      "scheduled": 90
+    },
+    {
+      "run": "027-mvc-resttemplate-db-write-r200-rep2",
+      "seconds": 94.222,
+      "scheduled": 90
+    },
+    {
+      "run": "028-inventory-inventory-r1000-rep2",
+      "seconds": 95.074,
+      "scheduled": 90
+    },
+    {
+      "run": "029-webflux-orders-r200-rep2",
+      "seconds": 93.781,
+      "scheduled": 90
+    },
+    {
+      "run": "030-mvc-resttemplate-db-read-r1000-rep2",
+      "seconds": 96.146,
+      "scheduled": 90
+    },
+    {
+      "run": "031-webflux-db-write-r1000-rep2",
+      "seconds": 94.382,
+      "scheduled": 90
+    },
+    {
+      "run": "032-webflux-orders-r500-rep2",
+      "seconds": 95.277,
+      "scheduled": 90
+    },
+    {
+      "run": "033-mvc-resttemplate-orders-r500-rep2",
+      "seconds": 95.607,
+      "scheduled": 90
+    },
+    {
+      "run": "034-webflux-orders-r1000-rep2",
+      "seconds": 94.778,
+      "scheduled": 90
+    },
+    {
+      "run": "035-webflux-db-write-r500-rep2",
+      "seconds": 95.31,
+      "scheduled": 90
+    },
+    {
+      "run": "036-webflux-db-read-r1000-rep2",
+      "seconds": 94.714,
+      "scheduled": 90
+    },
+    {
+      "run": "037-webflux-db-read-r200-rep2",
+      "seconds": 95.263,
+      "scheduled": 90
+    },
+    {
+      "run": "038-mvc-feign-orders-r1000-rep2",
+      "seconds": 94.811,
+      "scheduled": 90
+    },
+    {
+      "run": "039-mvc-resttemplate-orders-r1000-rep2",
+      "seconds": 94.727,
+      "scheduled": 90
+    },
+    {
+      "run": "040-webflux-db-read-r500-rep2",
+      "seconds": 95.489,
+      "scheduled": 90
+    },
+    {
+      "run": "041-inventory-inventory-r200-rep2",
+      "seconds": 94.806,
+      "scheduled": 90
+    },
+    {
+      "run": "042-mvc-resttemplate-orders-r200-rep2",
+      "seconds": 95.118,
+      "scheduled": 90
+    },
+    {
+      "run": "043-mvc-feign-orders-r200-rep2",
+      "seconds": 93.521,
+      "scheduled": 90
+    },
+    {
+      "run": "044-mvc-resttemplate-db-write-r1000-rep2",
+      "seconds": 95.421,
+      "scheduled": 90
+    },
+    {
+      "run": "045-mvc-resttemplate-db-read-r200-rep2",
+      "seconds": 94.664,
+      "scheduled": 90
+    },
+    {
+      "run": "046-mvc-resttemplate-db-write-r500-rep2",
+      "seconds": 93.824,
+      "scheduled": 90
+    },
+    {
+      "run": "047-mvc-resttemplate-db-read-r500-rep2",
+      "seconds": 95.447,
+      "scheduled": 90
+    },
+    {
+      "run": "048-webflux-db-write-r200-rep2",
+      "seconds": 94.821,
+      "scheduled": 90
+    },
+    {
+      "run": "049-mvc-resttemplate-db-read-r500-rep3",
+      "seconds": 96.204,
+      "scheduled": 90
+    },
+    {
+      "run": "050-inventory-inventory-r500-rep3",
+      "seconds": 93.864,
+      "scheduled": 90
+    },
+    {
+      "run": "051-webflux-db-write-r200-rep3",
+      "seconds": 94.833,
+      "scheduled": 90
+    },
+    {
+      "run": "052-webflux-db-write-r1000-rep3",
+      "seconds": 95.321,
+      "scheduled": 90
+    },
+    {
+      "run": "053-mvc-feign-orders-r500-rep3",
+      "seconds": 94.892,
+      "scheduled": 90
+    },
+    {
+      "run": "054-webflux-db-read-r1000-rep3",
+      "seconds": 94.687,
+      "scheduled": 90
+    },
+    {
+      "run": "055-mvc-resttemplate-orders-r500-rep3",
+      "seconds": 95.25,
+      "scheduled": 90
+    },
+    {
+      "run": "056-inventory-inventory-r200-rep3",
+      "seconds": 93.812,
+      "scheduled": 90
+    },
+    {
+      "run": "057-mvc-resttemplate-orders-r1000-rep3",
+      "seconds": 94.99,
+      "scheduled": 90
+    },
+    {
+      "run": "058-webflux-db-read-r200-rep3",
+      "seconds": 96.411,
+      "scheduled": 90
+    },
+    {
+      "run": "059-mvc-feign-orders-r200-rep3",
+      "seconds": 95.839,
+      "scheduled": 90
+    },
+    {
+      "run": "060-mvc-resttemplate-db-write-r200-rep3",
+      "seconds": 94.787,
+      "scheduled": 90
+    },
+    {
+      "run": "061-mvc-resttemplate-db-read-r200-rep3",
+      "seconds": 93.824,
+      "scheduled": 90
+    },
+    {
+      "run": "062-mvc-resttemplate-db-write-r1000-rep3",
+      "seconds": 96.376,
+      "scheduled": 90
+    },
+    {
+      "run": "063-mvc-resttemplate-orders-r200-rep3",
+      "seconds": 95.23,
+      "scheduled": 90
+    },
+    {
+      "run": "064-mvc-resttemplate-db-read-r1000-rep3",
+      "seconds": 96.76,
+      "scheduled": 90
+    },
+    {
+      "run": "065-webflux-db-read-r500-rep3",
+      "seconds": 96.373,
+      "scheduled": 90
+    },
+    {
+      "run": "066-mvc-feign-orders-r1000-rep3",
+      "seconds": 95.541,
+      "scheduled": 90
+    },
+    {
+      "run": "067-webflux-orders-r1000-rep3",
+      "seconds": 93.685,
+      "scheduled": 90
+    },
+    {
+      "run": "068-webflux-orders-r500-rep3",
+      "seconds": 94.369,
+      "scheduled": 90
+    },
+    {
+      "run": "069-webflux-db-write-r500-rep3",
+      "seconds": 94.758,
+      "scheduled": 90
+    },
+    {
+      "run": "070-webflux-orders-r200-rep3",
+      "seconds": 95.281,
+      "scheduled": 90
+    },
+    {
+      "run": "071-inventory-inventory-r1000-rep3",
+      "seconds": 96.424,
+      "scheduled": 90
+    },
+    {
+      "run": "072-mvc-resttemplate-db-write-r500-rep3",
+      "seconds": 94.208,
+      "scheduled": 90
+    }
+  ],
+  "fixture": "C:\\Faculdade\\codes\\ArtigoCientifico\\Analise de desempenho - Spring WebFlux-R2DBC vs Spring MVC-JDBC\\docs\\auditoria-graficos-20261020\\fixture-Q0AyKx"
+}

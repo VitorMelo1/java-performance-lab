@@ -10,7 +10,7 @@ import reactor.core.publisher.Mono;
 class ApiController {
     private final ProductRepository products;
     private final WebClient remote;
-    ApiController(ProductRepository products, WebClient remoteClient) { this.products=products; this.remote=remoteClient; }
+    ApiController(ProductRepository products, @org.springframework.beans.factory.annotation.Qualifier("remoteClient") WebClient remoteClient) { this.products=products; this.remote=remoteClient; }
 
     @GetMapping("/products/{id}")
     Mono<Product> product(@PathVariable long id) {

@@ -1,4 +1,20 @@
-# Registro de validação — 28/09/2026
+# Registro de validação
+
+## Revisão de 28 e 29/09/2026
+
+- Corrigido o aquecimento: 60 s na taxa do cenário; medição padrão de 120 s.
+- Corrigida a captura de logs: os serviços ativos são informados explicitamente, com início UTC da rodada e sem corte arbitrário nas últimas 300 linhas. Conferida a presença de logs Java nas sete combinações da execução curta.
+- Corrigida a contagem de containers externos: Docker rejeitava o filtro negativo antigo, cujo erro podia produzir um zero enganoso. Agora são comparados os IDs totais e os IDs com a etiqueta do laboratório, verificando os códigos de saída.
+- Adicionados plano sem execução, filtro de variante para diagnóstico, exclusão entre coletas simultâneas e resumo de contagens/variação temporal.
+- 5 verificações do plano passaram no Windows PowerShell 5.1.
+- 16 testes do analisador passaram no Node 22.14.0 do container, incluindo corrupção de gzip, contagens inconsistentes, amostras insuficientes, deriva e picos. Um erro de validação ocultado como AbortError no Node 22 foi reproduzido e corrigido sem relaxar as asserções.
+- Os 15 testes funcionais das APIs passaram novamente: 5 em cada variante.
+- O novo Retest Quick terminou com 8 rodadas sem falhas nem descartes: lotes `20260928-234939-f4f5fb` e `20260928-235002-e91604`. A duração curta é classificada como insuficiente para triagem temporal. Esses lotes foram iniciados antes da correção final do contador de containers e não devem ser usados como evidência de isolamento.
+- Diagnóstico mais longo: lote `20260928-235423-51bdac`, WebFlux HTTP a 500 req/s, uma repetição, aquecimento 60 s na taxa alvo e medição 120 s. A medição teve 60.000 respostas corretas, zero falhas e zero descartes, p95 de 103 ms, p99 de 107 ms e 499,6 respostas válidas/s. As três janelas tiveram p95 de 103 ms, sem alerta pela heurística. O aquecimento teve 361 descartes, mantidos no diretório separado. Esse diagnóstico isolado não substitui a comparação completa nem suas repetições.
+
+O artigo descreve a coleta original e o diagnóstico separadamente. O comando `Retest.ps1` prepara a comparação completa de 48 rodadas; sua execução integral e a atualização comparativa das conclusões permanecem pendentes.
+
+## Histórico da validação inicial em 28/09/2026
 
 ## Verificações executadas
 
@@ -21,6 +37,6 @@
 
 ## Alcance
 
-Essas verificações comprovam funcionamento da bancada, não superioridade de uma arquitetura. Os ensaios curtos ocorreram em máquina compartilhada com outros containers e não devem ser usados como resultados do artigo. Não foram executadas as rodadas científicas de longa duração.
+Essas verificações iniciais comprovavam funcionamento da bancada, não superioridade de uma arquitetura. Os ensaios curtos ocorreram em máquina compartilhada e não devem ser usados como resultados do artigo. Naquele estágio, as rodadas de longa duração ainda não haviam sido executadas; posteriormente o autor produziu o lote exploratório `20260928-171209-bc17aa`, com 84 rodadas.
 
 A última alteração de exportação distingue VUs alocados de requisições simultâneas. O ensaio final confirmou o campo allocated_vus_max. Não se inferiu concorrência real diretamente desse campo.

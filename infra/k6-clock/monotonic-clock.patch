@@ -1,0 +1,21 @@
+diff --git a/lib/netext/httpext/tracer.go b/lib/netext/httpext/tracer.go
+--- a/lib/netext/httpext/tracer.go
++++ b/lib/netext/httpext/tracer.go
+@@ -166,3 +166,10 @@
++// Anchor exported timestamps once; elapsed intervals use Go's monotonic clock.
++var traceClockOrigin = time.Now()
++
++func traceTime() time.Time {
++	return traceClockOrigin.Add(time.Since(traceClockOrigin))
++}
++
+ func now() int64 {
+-	return time.Now().UnixNano()
++	return traceTime().UnixNano()
+ }
+@@ -314,4 +321,4 @@
+ func (t *Tracer) Done() *Trail {
+-	done := time.Now()
++	done := traceTime()
+ 
+ 	trail := Trail{

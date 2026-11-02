@@ -1,7 +1,13 @@
 name: java-performance-lab
 
 x-app-env: &app-env
-  JAVA_TOOL_OPTIONS: "-Xms256m -Xmx256m -XX:ActiveProcessorCount=2"
+  # Protocolo 4. O coletor de lixo passa a ser escolhido explicitamente: com 768 MiB de
+  # container o ergonomico da JVM classificava a maquina como "client class" e usava
+  # SerialGC, cujas pausas apareciam na cauda de latencia, mais no braco reativo
+  # (Reactor/Netty alocam mais por requisicao) do que no bloqueante. O heap sai de
+  # 256 MiB, onde o MVC chegava a 225 MiB usados, para 512 MiB. -Xlog:gc+init imprime
+  # uma vez na saida padrao qual coletor ficou ativo, registrado em services.log.
+  JAVA_TOOL_OPTIONS: "-Xms512m -Xmx512m -XX:+UseG1GC -XX:ActiveProcessorCount=2 -Xlog:gc+init=info:stderr"
   DB_HOST: postgres
   DB_NAME: lab
   DB_USER: lab
@@ -9,11 +15,14 @@ x-app-env: &app-env
   DB_POOL_SIZE: "20"
   HTTP_POOL_SIZE: "100"
   REMOTE_URL: http://upstream:9090
+  INVENTORY_URL: http://stock-service:8080
   SPRING_THREADS_VIRTUAL_ENABLED: "false"
 
 x-app: &app
   cpus: 2.0
-  mem_limit: 768m
+  # 1 GiB acomoda o heap de 512 MiB mais metaspace, pilhas e buffers diretos do Netty
+  # sem que o container seja morto por OOM. Assert-LabServices detecta OOMKilled.
+  mem_limit: 1g
   environment: *app-env
   depends_on:
     postgres:
@@ -40,6 +49,39 @@ services:
       interval: 2s
       timeout: 2s
       retries: 30
+
+  stock-db:
+    image: postgres:17.4-alpine
+    cpus: 1.0
+    mem_limit: 512m
+    environment:
+      POSTGRES_DB: inventory
+      POSTGRES_USER: inventory
+      POSTGRES_PASSWORD: inventory_local_only
+    volumes:
+      - inventory-db:/var/lib/postgresql/data
+      - ./infra/inventory.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U inventory -d inventory"]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+    profiles: ["business"]
+
+  stock-service:
+    image: java-performance-lab-stock:local
+    build: ./stock-service
+    cpus: 1.0
+    # O servico de estoque e comum a todos os bracos; o coletor tambem fica explicito
+    # aqui para que a dependencia compartilhada nao introduza pausas diferentes.
+    mem_limit: 640m
+    environment:
+      JAVA_TOOL_OPTIONS: "-Xms256m -Xmx256m -XX:+UseG1GC -XX:ActiveProcessorCount=1 -Xlog:gc+init=info:stderr"
+    depends_on:
+      stock-db:
+        condition: service_healthy
+    ports: ["127.0.0.1:18084:8080"]
+    profiles: ["business"]
 
   upstream:
     image: node:22.14.0-alpine
@@ -82,7 +124,8 @@ services:
     ports: ["127.0.0.1:18083:8080"]
 
   k6:
-    image: grafana/k6:1.0.0
+    image: java-performance-lab-k6:1.0.0-labclock1
+    build: ./infra/k6-clock
     profiles: ["tools"]
     volumes:
       - ./benchmarks:/scripts:ro
@@ -97,7 +140,10 @@ services:
     command: ["node", "--test", "contract.test.mjs"]
     volumes:
       - ./tests:/tests:ro
+      - ./benchmarks:/benchmarks:ro
+      - ./results:/results
 
 volumes:
+  inventory-db:
   lab-db:
 

@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "new_raw_runs": 175,
+  "packaged_raw_runs": 302,
+  "plotted_points": 355,
+  "reproduced_pngs": 7,
+  "embedded_figures": 5,
+  "tables": 4,
+  "pdf_pages": 16,
+  "feign_context_tests": 4,
+  "visual_revision": {
+    "version": "legibilidade-20261101",
+    "unchanged_plot_values": 355,
+    "reproduced_pngs": 7,
+    "embedded_figures": 5,
+    "pdf_pages": 16,
+    "inspected_changed_pages": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ]
+  }
+}

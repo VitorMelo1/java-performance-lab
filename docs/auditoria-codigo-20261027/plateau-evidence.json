@@ -1,0 +1,16 @@
+[
+  {
+    "start_ms": 44000,
+    "completion_ms": 46000,
+    "legacy_plateau_count": 1,
+    "completed_inside_plateau": true,
+    "started_inside_plateau": false
+  },
+  {
+    "start_ms": 59000,
+    "completion_ms": 65000,
+    "legacy_plateau_count": 1,
+    "completed_inside_plateau": false,
+    "started_inside_plateau": true
+  }
+]

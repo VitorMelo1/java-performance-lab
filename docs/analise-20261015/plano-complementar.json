@@ -1,0 +1,17 @@
+{
+  "registered_date": "2026-10-20",
+  "reference_batch": "20261015-011234-1ceec5",
+  "purpose": "Avaliar a repetibilidade das comparacoes nas condicoes selecionadas, preservando o protocolo 4.",
+  "selection_reason": "Pedidos em duas cargas elevadas e os dois cenarios SQL na maior taxa ja avaliada; todas as implementacoes pertinentes entram, independentemente do vencedor observado.",
+  "sessions": [{"id":"complement-A","repetitions":3,"runs":30,"seed":20261020},{"id":"complement-B","repetitions":2,"runs":20,"seed":20261021}],
+  "execution": "Sessao A e B em momentos diferentes. Cada bloco contem pedidos a 500 e 1000 req/s com tres implementacoes e db-read/db-write a 1000 com duas implementacoes. Ordem aleatoria dentro do bloco.",
+  "warmup_seconds": 60,
+  "measurement_seconds": 90,
+  "max_vus": 500,
+  "primary_metric": "p95 de request_latency_ms por rodada, mesma definicao do lote de referencia",
+  "joint_metrics": ["vazao correta", "erros", "descartes", "fracao entregue"],
+  "secondary_metrics": ["p99", "CPU por requisicao correta", "memoria", "GC", "threads"],
+  "analysis": "Mostrar todas as repeticoes por condicao e sessao; diferencas entre implementacoes dentro dos blocos. Nao juntar lotes ignorando sessao nem tratar requisicoes como repeticoes independentes. Repeticao e identificada pelo par sessao/repetition. Total previsto: oito repeticoes nas condicoes selecionadas, tres nas demais.",
+  "stopping_rule": "Quantidade fixa de rodadas, sem parada por significancia. Limite operacional de 240 minutos por sessao; falha de infraestrutura ou limite deixa pendencias registradas, nao significa sucesso. Nao selecionar somente rodadas favoraveis.",
+  "limitations": "Plano definido depois da analise do lote inicial. A ampliacao nao constitui preregistro do estudo original. Energia: o lote original registra nome/GUID, nao todos os parametros internos do plano; recriar Alto Desempenho nao prova identidade completa dessas configuracoes. Gerador ainda passa pelo build k6 existente no harness; sua identidade e registrada novamente no lote."
+}

@@ -1,0 +1,213 @@
+[
+  {
+    "batch": "20261031-032121-95a2b8",
+    "run": "001-webflux-db-read-r1000-rep1",
+    "json_lines_read": 1800222,
+    "compressed_sha256": "8aaaa5ad86ee254969b306d482a6703070c20ae9403cdeeafef9a1cd1b95f1ad",
+    "archive_equals_local": true,
+    "counts": {
+      "http_reqs": 90001,
+      "http_req_failed": 0,
+      "successful_requests": 90001,
+      "invalid_responses": 0
+    },
+    "status": {
+      "200": 90001
+    },
+    "duration_count": 90001,
+    "custom_latency_count": 90001,
+    "negative_or_nonfinite": 0,
+    "p50_ms": 0.853337,
+    "p95_ms": 1.524198,
+    "p99_ms": 2.602629,
+    "native_custom_values_identical": true,
+    "client_p95_ms": 1.540198,
+    "blocked_p95_ms": 0.008211,
+    "summary_matches": true
+  },
+  {
+    "batch": "20261031-032121-95a2b8",
+    "run": "005-mvc-resttemplate-db-read-r1000-rep1",
+    "json_lines_read": 1800222,
+    "compressed_sha256": "e07a6734df58697138be87c9ee9467166448c3b34dace551d574d190c83f6a40",
+    "archive_equals_local": true,
+    "counts": {
+      "http_reqs": 90001,
+      "http_req_failed": 0,
+      "successful_requests": 90001,
+      "invalid_responses": 0
+    },
+    "status": {
+      "200": 90001
+    },
+    "duration_count": 90001,
+    "custom_latency_count": 90001,
+    "negative_or_nonfinite": 0,
+    "p50_ms": 0.56619,
+    "p95_ms": 0.909506,
+    "p99_ms": 1.245821,
+    "native_custom_values_identical": true,
+    "client_p95_ms": 0.927334,
+    "blocked_p95_ms": 0.00708,
+    "summary_matches": true
+  },
+  {
+    "batch": "20261031-032121-95a2b8",
+    "run": "006-mvc-resttemplate-orders-r1000-rep1",
+    "json_lines_read": 1800222,
+    "compressed_sha256": "640db598e5a35960ab741dea8a2b77cdede99c5bc404db6a59259c5da5379c36",
+    "archive_equals_local": true,
+    "counts": {
+      "http_reqs": 90001,
+      "http_req_failed": 0,
+      "successful_requests": 90001,
+      "invalid_responses": 0
+    },
+    "status": {
+      "201": 90001
+    },
+    "duration_count": 90001,
+    "custom_latency_count": 90001,
+    "negative_or_nonfinite": 0,
+    "p50_ms": 3.334322,
+    "p95_ms": 6.332531,
+    "p99_ms": 14.93533,
+    "native_custom_values_identical": true,
+    "client_p95_ms": 6.349713,
+    "blocked_p95_ms": 0.011107,
+    "summary_matches": true
+  },
+  {
+    "batch": "20261031-032121-95a2b8",
+    "run": "008-mvc-feign-orders-r1000-rep1",
+    "json_lines_read": 1800222,
+    "compressed_sha256": "d05351f7e02d7e11128aafd88ac15c9e5e0d73dbf0e97a87bc8aad2b9f94b7da",
+    "archive_equals_local": true,
+    "counts": {
+      "http_reqs": 90001,
+      "http_req_failed": 0,
+      "successful_requests": 90001,
+      "invalid_responses": 0
+    },
+    "status": {
+      "201": 90001
+    },
+    "duration_count": 90001,
+    "custom_latency_count": 90001,
+    "negative_or_nonfinite": 0,
+    "p50_ms": 3.602826,
+    "p95_ms": 10.178168,
+    "p99_ms": 33.071198,
+    "native_custom_values_identical": true,
+    "client_p95_ms": 10.218929,
+    "blocked_p95_ms": 0.012011,
+    "summary_matches": true
+  },
+  {
+    "batch": "20261031-032121-95a2b8",
+    "run": "016-webflux-orders-r1000-rep1",
+    "json_lines_read": 1800222,
+    "compressed_sha256": "19b8094e8c6a1ee5f3f330a1c826eca7b44a87fef973d35c6b975bd8b0e65139",
+    "archive_equals_local": true,
+    "counts": {
+      "http_reqs": 90001,
+      "http_req_failed": 0,
+      "successful_requests": 90001,
+      "invalid_responses": 0
+    },
+    "status": {
+      "201": 90001
+    },
+    "duration_count": 90001,
+    "custom_latency_count": 90001,
+    "negative_or_nonfinite": 0,
+    "p50_ms": 4.311755,
+    "p95_ms": 9.395788,
+    "p99_ms": 34.712417,
+    "native_custom_values_identical": true,
+    "client_p95_ms": 9.442883,
+    "blocked_p95_ms": 0.011761,
+    "summary_matches": true
+  },
+  {
+    "batch": "20261020-020913-fbd4ad",
+    "run": "002-webflux-orders-r1000-rep1",
+    "json_lines_read": 1732525,
+    "compressed_sha256": "dd72b75f5efa1b20a8871c7a5e32f8d5539731ff63ae556a97aef24ed58a1294",
+    "archive_equals_local": true,
+    "counts": {
+      "http_reqs": 86438,
+      "http_req_failed": 1,
+      "successful_requests": 86437,
+      "invalid_responses": 1,
+      "dropped_iterations": 3563
+    },
+    "status": {
+      "201": 86437,
+      "500": 1
+    },
+    "duration_count": 86438,
+    "custom_latency_count": 86438,
+    "negative_or_nonfinite": 0,
+    "p50_ms": 9.117623,
+    "p95_ms": 603.2873804,
+    "p99_ms": 706.0621867000001,
+    "native_custom_values_identical": true,
+    "client_p95_ms": 603.3088269499999,
+    "blocked_p95_ms": 0.014075449999999982,
+    "summary_matches": true
+  },
+  {
+    "batch": "20261029-042801-b8e74e",
+    "run": "001-webflux-orders-r1000-rep1",
+    "json_lines_read": 1800222,
+    "compressed_sha256": "4adee89bc99a820679dcdb16ea0a65336d983487590c0059ea480e37ce0fa372",
+    "archive_equals_local": true,
+    "counts": {
+      "http_reqs": 90001,
+      "http_req_failed": 0,
+      "successful_requests": 90001,
+      "invalid_responses": 0
+    },
+    "status": {
+      "201": 90001
+    },
+    "duration_count": 90001,
+    "custom_latency_count": 90001,
+    "negative_or_nonfinite": 0,
+    "p50_ms": 5.521836,
+    "p95_ms": 14.166682,
+    "p99_ms": 34.621486,
+    "native_custom_values_identical": true,
+    "client_p95_ms": 14.253684,
+    "blocked_p95_ms": 0.014271,
+    "summary_matches": true
+  },
+  {
+    "batch": "20261101-014109-c2d17d",
+    "run": "001-mvc-feign-orders-r1000-rep1",
+    "json_lines_read": 1759012,
+    "compressed_sha256": "fb36611df501d7c62b61923ef5fadf8253508572181a89baed7aab632c2d46f6",
+    "archive_equals_local": true,
+    "counts": {
+      "http_reqs": 87832,
+      "http_req_failed": 0,
+      "successful_requests": 87832,
+      "invalid_responses": 0,
+      "dropped_iterations": 2169
+    },
+    "status": {
+      "201": 87832
+    },
+    "duration_count": 87832,
+    "custom_latency_count": 87832,
+    "negative_or_nonfinite": 0,
+    "p50_ms": 181.6035755,
+    "p95_ms": 586.1344457499999,
+    "p99_ms": 700.7857703000001,
+    "native_custom_values_identical": true,
+    "client_p95_ms": 586.1852517499999,
+    "blocked_p95_ms": 0.014583449999999998,
+    "summary_matches": true
+  }
+]

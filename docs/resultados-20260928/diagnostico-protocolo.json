@@ -1,0 +1,115 @@
+{
+  "batch": "20260928-235423-51bdac",
+  "row": {
+    "variant": "webflux",
+    "scenario": "http",
+    "repetition": 1,
+    "offered_rps": 500,
+    "scheduled_seconds": 120,
+    "elapsed_seconds": 120.092114489,
+    "delay_ms": 100,
+    "max_vus": 500,
+    "requests": 60000,
+    "successful_requests": 60000,
+    "completed_rps": 499.61648402398464,
+    "successful_rps": 499.61648402398464,
+    "invalid_rate": 0,
+    "http_error_rate": 0,
+    "dropped_iterations": 0,
+    "wall_p50_ms": 101,
+    "wall_p95_ms": 103,
+    "wall_p99_ms": 107,
+    "wall_mean_ms": 101.5258,
+    "successful_p95_ms": 103,
+    "successful_p99_ms": 107,
+    "http_p95_ms": 102.558629,
+    "http_blocked_p95_ms": 0.011977,
+    "allocated_vus_max": 500
+  },
+  "quality": {
+    "schema_version": 1,
+    "variant": "webflux",
+    "scenario": "http",
+    "repetition": 1,
+    "integrity": {
+      "counts_match": true,
+      "row_requests": 60000,
+      "wall_samples": 60000,
+      "raw_http_requests": 60000,
+      "raw_records": 1080260
+    },
+    "load_delivered": true,
+    "error_count": 0,
+    "has_errors": false,
+    "delivery": {
+      "expected_requests": 60000,
+      "dropped_iterations": 0,
+      "missing_against_target": 0,
+      "boundary_tolerance_requests": 1,
+      "interpretation": "Carga entregue exige zero descartes e contagem observada de pelo menos alvo âˆ’ 1; tolerÃ¢ncia de fronteira do agendamento."
+    },
+    "stability": {
+      "status": "sem_alerta",
+      "heuristic_only": true,
+      "interpretation": "Triagem temporal; sem_alerta nÃ£o certifica regime estacionÃ¡rio nem valida o experimento.",
+      "scheduled_seconds": 120,
+      "start_epoch_ms": 1790650537897,
+      "start_source": "min_completion_minus_wall",
+      "start_uncertainty": "InÃ­cio estimado pelo menor (tÃ©rmino âˆ’ duraÃ§Ã£o) observado; sem metadado autoritativo do inÃ­cio. Descartes iniciais podem deslocar as janelas.",
+      "thresholds": {
+        "minimum_seconds": 60,
+        "minimum_samples_per_window": 30,
+        "latency_absolute_ms": 5,
+        "latency_relative_fraction": 0.2,
+        "completion_count_relative_fraction": 0.1
+      },
+      "sufficient_data": true,
+      "windows": [
+        {
+          "window": 1,
+          "from_seconds": 0,
+          "to_seconds": 40,
+          "n": 19955,
+          "p95_ms": 103,
+          "completions_per_second": 498.875
+        },
+        {
+          "window": 2,
+          "from_seconds": 40,
+          "to_seconds": 80,
+          "n": 20003,
+          "p95_ms": 103,
+          "completions_per_second": 500.075
+        },
+        {
+          "window": 3,
+          "from_seconds": 80,
+          "to_seconds": 120,
+          "n": 20001,
+          "p95_ms": 103,
+          "completions_per_second": 500.025
+        }
+      ],
+      "latency": {
+        "median_p95_ms": 103,
+        "spread_ms": 0,
+        "limit_ms": 20.6,
+        "passed": true
+      },
+      "completion_rate": {
+        "median_window_count": 20001,
+        "spread_count": 48,
+        "limit_count": 2000.1000000000001,
+        "passed": true
+      },
+      "drainage": {
+        "n": 41,
+        "p95_ms": 103,
+        "seconds_after_end": 0.082
+      }
+    },
+    "report_pt": "Qualidade da rodada: webflux / http / repetiÃ§Ã£o 1.\nIntegridade: 60000 amostras de duraÃ§Ã£o; contagem confere com row.json e http_reqs.\nCarga programada: 60000 requisiÃ§Ãµes. Observadas: 60000.\nCarga entregue: sim. RequisiÃ§Ãµes nÃ£o iniciadas: 0.\nRespostas invÃ¡lidas ou falhas: 0.\nVariaÃ§Ã£o ao longo da rodada: nenhum alerta pela heurÃ­stica.\nHeurÃ­stica: trÃªs janelas iguais, pelo menos 60 s no total e 30 amostras por janela.\nAlerta quando a amplitude dos p95 excede o maior entre 5 ms e 20% da mediana; ou a amplitude das contagens excede 10% da mediana.\nJanela 1 (0.0â€“40.0 s): n=19955; p95=103.00 ms.\nJanela 2 (40.0â€“80.0 s): n=20003; p95=103.00 ms.\nJanela 3 (80.0â€“120.0 s): n=20001; p95=103.00 ms.\nConclusÃµes apÃ³s o fim programado (drenagem): 41; analisadas separadamente.\nInÃ­cio estimado pelo menor (tÃ©rmino âˆ’ duraÃ§Ã£o) observado; sem metadado autoritativo do inÃ­cio. Descartes iniciais podem deslocar as janelas.\nTriagem temporal; sem_alerta nÃ£o certifica regime estacionÃ¡rio nem valida o experimento.\nA triagem nÃ£o identifica sozinha a causa de descartes, falhas ou variaÃ§Ã£o. Os dados brutos foram preservados.\n"
+  },
+  "java_source_unchanged": true,
+  "container_images_unchanged": true
+}

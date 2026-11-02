@@ -1,0 +1,172 @@
+{
+  "zip_entries": 3787,
+  "packaged_run_results": 302,
+  "missing_execution_files": [
+    "scripts/Benchmark.ps1",
+    "scripts/Common.ps1",
+    "scripts/DiagnosticSupport.ps1",
+    "infra/init.sql",
+    "infra/orders.sql",
+    "infra/inventory.sql",
+    "infra/k6-clock/Dockerfile",
+    "infra/k6-clock/clock_regression_test.go"
+  ],
+  "summary_mismatches": [],
+  "batch_totals": {
+    "20261015-011234-1ceec5": {
+      "n": 72,
+      "requests": 3672051,
+      "errors": 0,
+      "drops": 0
+    },
+    "20261020-020913-fbd4ad": {
+      "n": 30,
+      "requests": 2280098,
+      "errors": 1,
+      "drops": 14923
+    },
+    "20261029-033941-07d846": {
+      "n": 3,
+      "requests": 302,
+      "errors": 0,
+      "drops": 0
+    },
+    "20261029-034211-945f7a": {
+      "n": 1,
+      "requests": 101,
+      "errors": 0,
+      "drops": 0
+    },
+    "20261029-034308-d38bca": {
+      "n": 9,
+      "requests": 797079,
+      "errors": 0,
+      "drops": 12927
+    },
+    "20261029-040958-44e7d6": {
+      "n": 3,
+      "requests": 135001,
+      "errors": 0,
+      "drops": 0
+    },
+    "20261029-041854-4de10d": {
+      "n": 3,
+      "requests": 263332,
+      "errors": 1,
+      "drops": 6673
+    },
+    "20261029-042801-b8e74e": {
+      "n": 3,
+      "requests": 270003,
+      "errors": 0,
+      "drops": 0
+    },
+    "20261029-043702-d6e020": {
+      "n": 1,
+      "requests": 87227,
+      "errors": 0,
+      "drops": 2774
+    },
+    "20261029-044009-4025de": {
+      "n": 1,
+      "requests": 90001,
+      "errors": 0,
+      "drops": 0
+    },
+    "20261029-044317-72f8c3": {
+      "n": 1,
+      "requests": 89436,
+      "errors": 0,
+      "drops": 565
+    },
+    "20261030-031502-ed8bbd": {
+      "n": 8,
+      "requests": 805,
+      "errors": 0,
+      "drops": 0
+    },
+    "20261030-031922-3e0318": {
+      "n": 72,
+      "requests": 3665223,
+      "errors": 0,
+      "drops": 6833
+    },
+    "20261030-140228-6741d1": {
+      "n": 3,
+      "requests": 269336,
+      "errors": 0,
+      "drops": 668
+    },
+    "20261031-030111-8cbb28": {
+      "n": 3,
+      "requests": 269724,
+      "errors": 0,
+      "drops": 278
+    },
+    "20261031-031722-9ae730": {
+      "n": 8,
+      "requests": 805,
+      "errors": 0,
+      "drops": 0
+    },
+    "20261031-032121-95a2b8": {
+      "n": 72,
+      "requests": 3672060,
+      "errors": 0,
+      "drops": 0
+    },
+    "20261101-014109-c2d17d": {
+      "n": 9,
+      "requests": 456522,
+      "errors": 0,
+      "drops": 2485
+    }
+  },
+  "source_snapshot_matching": {
+    "20261015-011234-1ceec5": {
+      "matched_files": 47,
+      "unmatched_important_files": [
+        "infra/k6-clock/Dockerfile"
+      ]
+    },
+    "20261020-020913-fbd4ad": {
+      "matched_files": 47,
+      "unmatched_important_files": [
+        "infra/k6-clock/Dockerfile"
+      ]
+    },
+    "20261030-031922-3e0318": {
+      "matched_files": 48,
+      "unmatched_important_files": [
+        "infra/k6-clock/Dockerfile"
+      ]
+    },
+    "20261031-032121-95a2b8": {
+      "matched_files": 50,
+      "unmatched_important_files": [
+        "infra/k6-clock/Dockerfile"
+      ]
+    },
+    "20261101-014109-c2d17d": {
+      "matched_files": 50,
+      "unmatched_important_files": [
+        "infra/k6-clock/Dockerfile"
+      ]
+    }
+  },
+  "packaged_current_mvc_dockerfile": "FROM maven@sha256:3a4ab3276a087bf276f79cae96b1af04f53731bec53fb2e651aca79e4b10211e AS build\nWORKDIR /build\nCOPY pom.xml .\nRUN mvn -B -q dependency:go-offline\nCOPY src ./src\nRUN mvn -B -q verify\nFROM eclipse-temurin@sha256:9603446cf51296842eab342514857cf7ab55a8891cd564e6c68ec237fae65a16\nWORKDIR /app\nRUN useradd --system --uid 10001 app\nCOPY --from=build /build/target/app.jar app.jar\nUSER 10001\nEXPOSE 8080\nENTRYPOINT [\"java\", \"-jar\", \"/app/app.jar\"]\n\n",
+  "runtime_evidence": {
+    "20261031-032121-95a2b8": {
+      "file": "dados/20261031-032121-95a2b8/008-mvc-feign-orders-r1000-rep1/prometheus-before.txt",
+      "jvm_info": [
+        "jvm_info{runtime=\"OpenJDK Runtime Environment\",vendor=\"Eclipse Adoptium\",version=\"21.0.13+9-LTS\"} 1"
+      ]
+    },
+    "20261101-014109-c2d17d": {
+      "file": "dados/20261101-014109-c2d17d/001-mvc-feign-orders-r1000-rep1/prometheus-before.txt",
+      "jvm_info": [
+        "jvm_info{runtime=\"OpenJDK Runtime Environment\",vendor=\"Eclipse Adoptium\",version=\"21.0.12.1+1-LTS\"} 1"
+      ]
+    }
+  }
+}

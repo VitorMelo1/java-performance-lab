@@ -1,0 +1,2 @@
+package br.edu.benchmark;
+public record InventoryItem(long id, String name, long priceCents, int stock) {}

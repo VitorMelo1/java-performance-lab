@@ -1,0 +1,26 @@
+[
+  {
+    "Path": "C:\\Faculdade\\codes\\ArtigoCientifico\\Analise de desempenho - Spring WebFlux-R2DBC vs Spring MVC-JDBC\\benchmarks\\report.mjs",
+    "Hash": "EF7E3D8D9056A73871030F5BF7AE0D1408EBAD7F03B044211F42F10F368A729C"
+  },
+  {
+    "Path": "C:\\Faculdade\\codes\\ArtigoCientifico\\Analise de desempenho - Spring WebFlux-R2DBC vs Spring MVC-JDBC\\benchmarks\\catalog.mjs",
+    "Hash": "410BB3F88C9E09D1686FF28C8D41047167DA85C7F2035ED105119DD83A8E8B97"
+  },
+  {
+    "Path": "C:\\Faculdade\\codes\\ArtigoCientifico\\Analise de desempenho - Spring WebFlux-R2DBC vs Spring MVC-JDBC\\benchmarks\\load.js",
+    "Hash": "05434EA537571E219B4F8037893D0229B96B5033057014A74C5D537F88A3D262"
+  },
+  {
+    "Path": "C:\\Faculdade\\codes\\ArtigoCientifico\\Analise de desempenho - Spring WebFlux-R2DBC vs Spring MVC-JDBC\\benchmarks\\quality.mjs",
+    "Hash": "10C1EAB07E105220E4071A4C6346A1BA136F3EABF0901DF52B54E09F1B2155C1"
+  },
+  {
+    "Path": "C:\\Faculdade\\codes\\ArtigoCientifico\\Analise de desempenho - Spring WebFlux-R2DBC vs Spring MVC-JDBC\\scripts\\Benchmark.ps1",
+    "Hash": "9F4FE4571DFD1359FF56CFF194F4006F9C4ED8AE10BA0208AFB0BBF8C2A3C116"
+  },
+  {
+    "Path": "C:\\Faculdade\\codes\\ArtigoCientifico\\Analise de desempenho - Spring WebFlux-R2DBC vs Spring MVC-JDBC\\scripts\\Common.ps1",
+    "Hash": "132123E97F9E75C6109EFB3DB949A3BFE97C2E0583892F73CB8A102563D431F2"
+  }
+]

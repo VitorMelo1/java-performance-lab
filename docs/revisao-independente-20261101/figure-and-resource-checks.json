@@ -1,0 +1,158 @@
+{
+  "figure_points_checked": 355,
+  "mismatches": [],
+  "independent_cgroup_delta_calculations": [
+    {
+      "batch": "20261029-034308-d38bca",
+      "run": "002-webflux-orders-r1000-rep1",
+      "percent": 65.91397849462365,
+      "periods": 930,
+      "throttled": 613
+    },
+    {
+      "batch": "20261029-034308-d38bca",
+      "run": "004-webflux-orders-r1000-rep2",
+      "percent": 36.61971830985915,
+      "periods": 923,
+      "throttled": 338
+    },
+    {
+      "batch": "20261029-034308-d38bca",
+      "run": "007-webflux-orders-r1000-rep3",
+      "percent": 51.19565217391305,
+      "periods": 920,
+      "throttled": 471
+    },
+    {
+      "batch": "20261029-041854-4de10d",
+      "run": "001-webflux-orders-r1000-rep1",
+      "percent": 51.74291938997821,
+      "periods": 918,
+      "throttled": 475
+    },
+    {
+      "batch": "20261029-041854-4de10d",
+      "run": "002-webflux-orders-r1000-rep2",
+      "percent": 47.23726977248104,
+      "periods": 923,
+      "throttled": 436
+    },
+    {
+      "batch": "20261029-041854-4de10d",
+      "run": "003-webflux-orders-r1000-rep3",
+      "percent": 43.865363735070574,
+      "periods": 921,
+      "throttled": 404
+    },
+    {
+      "batch": "20261029-042801-b8e74e",
+      "run": "001-webflux-orders-r1000-rep1",
+      "percent": 0.0,
+      "periods": 914,
+      "throttled": 0
+    },
+    {
+      "batch": "20261029-042801-b8e74e",
+      "run": "002-webflux-orders-r1000-rep2",
+      "percent": 0.0,
+      "periods": 921,
+      "throttled": 0
+    },
+    {
+      "batch": "20261029-042801-b8e74e",
+      "run": "003-webflux-orders-r1000-rep3",
+      "percent": 0.0,
+      "periods": 919,
+      "throttled": 0
+    },
+    {
+      "batch": "20261029-044317-72f8c3",
+      "run": "001-webflux-orders-r1000-rep1",
+      "percent": 40.021574973031285,
+      "periods": 927,
+      "throttled": 371
+    }
+  ],
+  "readme_replacement_characters": 0,
+  "latest_recorded_container_resource_limits": {
+    "postgres": {
+      "NanoCpus": 2000000000,
+      "CpuQuota": 0,
+      "Memory": 805306368
+    },
+    "stock-db": {
+      "NanoCpus": 1000000000,
+      "CpuQuota": 0,
+      "Memory": 536870912
+    },
+    "stock-service": {
+      "NanoCpus": 1000000000,
+      "CpuQuota": 0,
+      "Memory": 671088640
+    },
+    "upstream": {
+      "NanoCpus": 1000000000,
+      "CpuQuota": 0,
+      "Memory": 134217728
+    },
+    "webflux": {
+      "NanoCpus": 2000000000,
+      "CpuQuota": 0,
+      "Memory": 1073741824
+    },
+    "mvc-feign": {
+      "NanoCpus": 2000000000,
+      "CpuQuota": 0,
+      "Memory": 1073741824
+    },
+    "mvc-resttemplate": {
+      "NanoCpus": 2000000000,
+      "CpuQuota": 0,
+      "Memory": 1073741824
+    }
+  },
+  "latest_stock_lifecycle": {
+    "recorded_runs": 72,
+    "unique_container_ids": 1,
+    "unique_start_times": [
+      "2026-10-31T06:16:34.286459361Z"
+    ]
+  },
+  "latest_1000rps_mean_http_inflight_proxy": {
+    "('db-read', 'webflux')": [
+      0.9891224958077796,
+      0.889038630225021,
+      0.8711257379918494
+    ],
+    "('db-read', 'mvc-resttemplate')": [
+      0.6323939979565676,
+      0.6154724698478927,
+      0.5908274537312658
+    ],
+    "('orders', 'mvc-resttemplate')": [
+      3.934295575115892,
+      4.0400270011468224,
+      3.6781509341217142
+    ],
+    "('orders', 'mvc-feign')": [
+      5.459785177133149,
+      3.8329636965697023,
+      3.6669877605688246
+    ],
+    "('db-write', 'webflux')": [
+      3.0812067514021675,
+      2.396011213815916,
+      2.44887400672362
+    ],
+    "('db-write', 'mvc-resttemplate')": [
+      1.9373536589155962,
+      2.281091164103306,
+      1.894060933331329
+    ],
+    "('orders', 'webflux')": [
+      5.494105957275634,
+      5.747452926436774,
+      5.523614170731636
+    ]
+  }
+}

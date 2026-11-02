@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "Se utilizar esta bancada, cite o software e o preprint associado quando disponível."
+type: software
+title: "Java Performance Lab — Spring MVC JDBC e Spring WebFlux R2DBC"
+authors:
+  - family-names: "Melo"
+    given-names: "Vitor Martins"
+  - family-names: "Passos"
+    given-names: "Athos Lial"
+  - family-names: "Silva"
+    given-names: "Jonatan Mariano da"
+# repository-code e preferred-citation serão preenchidos por Vincular-Publicacao.ps1.
